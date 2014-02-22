@@ -3,13 +3,14 @@
 	"type": "library",
 	"description": "Provides a ZF2 View Helper to render markdown syntax",
 	"homepage": "https://github.com/maglnet/MaglMarkdown",
-   "authors": [
-        {
-            "name": "Matthias Glaub",
-            "email": "magl@magl.net",
-            "role": "Developer"
-        }
-    ],
+	"license": "LGPL3",
+	"authors": [
+		{
+			"name": "Matthias Glaub",
+			"email": "magl@magl.net",
+			"role": "Developer"
+		}
+	],
 	"require": {
 		"php": ">=5.3.0",
 		"michelf/php-markdown": "1.4.*",
