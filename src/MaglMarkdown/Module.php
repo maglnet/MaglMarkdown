@@ -28,7 +28,6 @@ class Module extends \Zend\Form\View\Helper\AbstractHelper {
 			'Zend\Loader\StandardAutoloader' => array(
 				'namespaces' => array(
 					__NAMESPACE__ => __DIR__ ,
-					'Michelf' => __DIR__ . '/vendor/michelf/php-markdown/Michelf',
 				),
 			),
 		);
