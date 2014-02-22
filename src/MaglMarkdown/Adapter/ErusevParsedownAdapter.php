@@ -10,11 +10,6 @@ namespace MaglMarkdown\Adapter;
  */
 class ErusevParsedownAdapter implements MarkdownAdapterInterface {
 
-	public function __construct() {
-		echo "loading";
-		require_once realpath(__DIR__ . '/../../../vendor/erusev/parsedown/Parsedown.php');
-	}
-
 	public function transformText($text) {
 		$parsedown = new \Parsedown();
 

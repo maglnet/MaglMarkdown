@@ -13,7 +13,7 @@ You can use one of the following parsers for your Markdown:
 
 ## Installation
 
-You can simply install the module with composer by adding the following "require" to your composer.json
+You can install the module with composer by adding the following "require" to your `composer.json`
 
 ```
 {
@@ -28,6 +28,14 @@ after that you need to run
 php composer.phar update
 ```
 
+and enable the module within your `application.config.php`
+```
+'modules' => array(
+	'Application',
+	'MaglMarkdown',
+),
+```
+
 
 ## Usage
 
@@ -39,13 +47,16 @@ $this->markdown('Yes, **this** is *Markdown*!');
 
 ## Configuration
 
-Have a look at the provided config file *config/maglmarkdown.local.php*.
+Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php` .
 There you can choose between the provided parsers, simply comment out one of the lines to enable a different parser.
+By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser by Michel Fortin is used.
 
 ## Adding own parsers
 
-It is possible to add your own parser implementation. All you have to do, is to write a class that implements the *MaglMarkdown\Adapter\MarkdownAdapterInterface* interface
-and provide an alias for that class.
+It is possible to add your own parser implementation.
+All you have to do, is to write a class that implements the `MaglMarkdown\Adapter\MarkdownAdapterInterface` interface
+and make it available throug the service manager.
+After that override the alias `MaglMarkdown\MarkdownAdapter`to point to your custom adapter.
 MaglMarkdown will then use this class to transform the Markdown.
 
 ```
