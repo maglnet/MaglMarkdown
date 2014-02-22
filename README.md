@@ -1,6 +1,6 @@
 # MaglMarkdown
 
-Version 1.0.0 by Matthias Glaub
+Version 1.0.2 by Matthias Glaub
 
 ## Introduction
 

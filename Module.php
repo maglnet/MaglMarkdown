@@ -18,7 +18,7 @@ class Module extends \Zend\Form\View\Helper\AbstractHelper {
 				'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter',
 			),
 			'aliases' => array(
-				'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter'
+				'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
 			),
 		);
 	}
