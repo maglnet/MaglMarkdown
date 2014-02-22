@@ -1,9 +1,10 @@
 {
 	"name": "maglnet/magl-markdown",
 	"type": "library",
-	"description": "Provides a ZF2 View Helper to render markdown syntax",
+	"description": "Provides a ZF2 View Helper to render markdown syntax. It uses third-party libraries for the rendering and you can switch between different renderers.",
 	"homepage": "https://github.com/maglnet/MaglMarkdown",
-	"license": "LGPL3",
+	"license": "LGPL-3.0",
+	"keywords": ["markdown", "zend framework", "zf2", "parsedown"],
 	"authors": [
 		{
 			"name": "Matthias Glaub",
