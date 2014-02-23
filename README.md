@@ -1,6 +1,10 @@
 # MaglMarkdown
 
-Version 1.0.2 by Matthias Glaub
+[![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.png)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.png)](https://packagist.org/packages/maglnet/magl-markdown)
+[![License](https://poser.pugx.org/maglnet/magl-markdown/license.png)](https://packagist.org/packages/maglnet/magl-markdown)
+
+MaglMarkdown is developed by Matthias Glaub
 
 ## Introduction
 
