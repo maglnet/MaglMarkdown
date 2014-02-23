@@ -4,6 +4,8 @@
 [![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.png)](https://packagist.org/packages/maglnet/magl-markdown)
 [![License](https://poser.pugx.org/maglnet/magl-markdown/license.png)](https://packagist.org/packages/maglnet/magl-markdown)
 
+dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.png?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
+
 MaglMarkdown is developed by Matthias Glaub
 
 ## Introduction
