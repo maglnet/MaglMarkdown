@@ -1,3 +1,3 @@
 <?php
 
-require __DIR__ .'/src/MaglMarkdown/Module.php';
+require __DIR__ . '/src/MaglMarkdown/Module.php';

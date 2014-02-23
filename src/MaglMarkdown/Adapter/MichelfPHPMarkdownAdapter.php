@@ -8,9 +8,11 @@ namespace MaglMarkdown\Adapter;
  * @see http://michelf.ca/projects/php-markdown/ Michel Fortin's PHP Markdown
  * @author Matthias Glaub <magl@magl.net>
  */
-class MichelfPHPMarkdownAdapter implements MarkdownAdapterInterface {
+class MichelfPHPMarkdownAdapter implements MarkdownAdapterInterface
+{
 
-	public function transformText($text) {
+	public function transformText($text)
+	{
 		return \Michelf\Markdown::defaultTransform($text);
 	}
 

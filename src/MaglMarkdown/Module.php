@@ -8,9 +8,11 @@ namespace MaglMarkdown;
  * 
  * @author Matthias Glaub <magl@magl.net>
  */
-class Module extends \Zend\Form\View\Helper\AbstractHelper {
+class Module
+{
 
-	public function getServiceConfig() {
+	public function getServiceConfig()
+	{
 		return array(
 			'invokables' => array(
 				'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
@@ -23,17 +25,19 @@ class Module extends \Zend\Form\View\Helper\AbstractHelper {
 		);
 	}
 
-	public function getAutoloaderConfig() {
+	public function getAutoloaderConfig()
+	{
 		return array(
 			'Zend\Loader\StandardAutoloader' => array(
 				'namespaces' => array(
-					__NAMESPACE__ => __DIR__ ,
+					__NAMESPACE__ => __DIR__,
 				),
 			),
 		);
 	}
 
-	public function getViewHelperConfig() {
+	public function getViewHelperConfig()
+	{
 		return array('invokables' => array('markdown' => 'MaglMarkdown\View\Helper\Markdown'));
 	}
 

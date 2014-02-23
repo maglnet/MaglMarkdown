@@ -7,7 +7,8 @@ namespace MaglMarkdown\View\Helper;
  *
  * @author Matthias Glaub <magl@magl.net>
  */
-class Markdown extends \Zend\View\Helper\AbstractHelper implements \Zend\ServiceManager\ServiceLocatorAwareInterface {
+class Markdown extends \Zend\View\Helper\AbstractHelper implements \Zend\ServiceManager\ServiceLocatorAwareInterface
+{
 
 	/**
 	 *
@@ -21,7 +22,8 @@ class Markdown extends \Zend\View\Helper\AbstractHelper implements \Zend\Service
 	 */
 	private $markdownAdapter = null;
 
-	public function __invoke($text) {
+	public function __invoke($text)
+	{
 		return $this->getMarkdownAdapter()->transformText($text);
 	}
 
@@ -29,7 +31,8 @@ class Markdown extends \Zend\View\Helper\AbstractHelper implements \Zend\Service
 	 * 
 	 * @return \MaglMarkdown\Adapter\MarkdownAdapterInterface
 	 */
-	private function getMarkdownAdapter() {
+	private function getMarkdownAdapter()
+	{
 		if (null === $this->markdownAdapter) {
 			$this->markdownAdapter = $this->getServiceLocator()->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
 			if (!$this->markdownAdapter instanceof \MaglMarkdown\Adapter\MarkdownAdapterInterface) {
@@ -39,11 +42,21 @@ class Markdown extends \Zend\View\Helper\AbstractHelper implements \Zend\Service
 		return $this->markdownAdapter;
 	}
 
-	public function getServiceLocator() {
+	/**
+	 * 
+	 * @return \Zend\ServiceManager\ServiceLocatorInterface
+	 */
+	public function getServiceLocator()
+	{
 		return $this->serviceLocator;
 	}
 
-	public function setServiceLocator(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator) {
+	/**
+	 * 
+	 * @param \Zend\ServiceManager\ServiceLocatorInterface $serviceLocator
+	 */
+	public function setServiceLocator(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator)
+	{
 		$this->serviceLocator = $serviceLocator;
 	}
 
