@@ -23,7 +23,7 @@ class Bootstrap
 		if (($path = static::findParentPath('vendor'))) {
 			$zf2ModulePaths[] = $path;
 		}
-		if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0]) {
+		if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0] && $path) {
 			$zf2ModulePaths[] = $path;
 		}
 
@@ -35,7 +35,6 @@ class Bootstrap
 				'module_paths' => $zf2ModulePaths,
 			),
 			'modules' => array(
-				'Application',
 				'MaglMarkdown'
 			)
 		);
