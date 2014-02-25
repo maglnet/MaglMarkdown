@@ -53,16 +53,16 @@ $this->markdown('Yes, **this** is *Markdown*!');
 
 ## Configuration
 
-Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php` .
-There you can choose between the provided parsers, simply comment out one of the lines to enable a different parser.
-By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser by Michel Fortin is used.
+Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php`.  
+There you can choose between the provided parsers, simply comment out one of the lines to enable a different parser.  
+By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser by Michel Fortin is used.  
 
 ## Adding own parsers
 
-It is possible to add your own parser implementation.
+It is possible to add your own parser implementation.  
 All you have to do, is to write a class that implements the `MaglMarkdown\Adapter\MarkdownAdapterInterface` interface
-and make it available throug the service manager.
-After that override the alias `MaglMarkdown\MarkdownAdapter`to point to your custom adapter.
+and make it available throug the service manager.  
+After that override the alias `MaglMarkdown\MarkdownAdapter`to point to your custom adapter.  
 MaglMarkdown will then use this class to transform the Markdown.
 
 ```
@@ -73,8 +73,21 @@ MaglMarkdown will then use this class to transform the Markdown.
 
 ## License
 
-MaglMarkdown is licensed under the LGPL-3 license. 
+MaglMarkdown is licensed under the MIT license.  
 See the included LICENSE file.
 
-[PHP Markdown](http://michelf.com/projects/php-markdown/) is available under the BSD-3-Clause license.
-[Parsedown](http://parsedown.org/) is available under the MIT License.
+Based on PHP Markdown Lib  
+Copyright (c) 2004-2013 Michel Fortin  
+http://michelf.ca/  
+All rights reserved.  
+
+Based on parsedown  
+Copyright (c) 2013 Emanuil Rusev  
+http://erusev.com/  
+All rights reserved.  
+
+Based on Markdown  
+Copyright (c) 2003-2005 John Gruber  
+http://daringfireball.net/  
+All rights reserved.  
+
