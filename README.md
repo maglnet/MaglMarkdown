@@ -3,6 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.png)](https://packagist.org/packages/maglnet/magl-markdown)
 [![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.png)](https://packagist.org/packages/maglnet/magl-markdown)
 [![License](https://poser.pugx.org/maglnet/magl-markdown/license.png)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Dependency Status](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0/badge.png)](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0)
 
 dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.png?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
 
