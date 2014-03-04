@@ -60,7 +60,7 @@ class Bootstrap
 		if (file_exists($vendorPath . '/autoload.php')) {
 			include $vendorPath . '/autoload.php';
 		} else {
-			throw new RuntimeException('Unable to find composer autoloader. Run `php composer.phar install`.'); 
+			throw new RuntimeException('Unable to find composer autoloader. Run `php composer.phar install`.');
 		}
 
 		AutoloaderFactory::factory(array(

@@ -1,27 +1,21 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace MaglMarkdownTest;
 
 use MaglMarkdown\Module;
-use Zend\Test\PHPUnit\Controller\AbstractControllerTestCase;
+use Zend\View\HelperPluginManager;
 
 /**
  * Description of ModuleTest
  *
  * @author matthias
  */
-class ModuleTest extends AbstractControllerTestCase
+class ModuleTest extends \PHPUnit_Framework_TestCase
 {
 
 	/**
 	 *
-	 * @var MaglMarkdown\Module
+	 * @var Module
 	 */
 	private $instance;
 
@@ -60,13 +54,21 @@ class ModuleTest extends AbstractControllerTestCase
 		$this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['aliases']));
 	}
 
+	public function testGetDefaultAdapter()
+	{
+		$markdown = Bootstrap::getServiceManager()->get('MaglMarkdown\MarkdownAdapter');
+
+		$this->assertInstanceOf('\MaglMarkdown\Adapter\MarkdownAdapterInterface', $markdown);
+		$this->assertInstanceOf('\MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $markdown);
+	}
+
 	public function testGetViewHelper()
 	{
 		$serviceManager = Bootstrap::getServiceManager();
-		
-		/* @var $view \Zend\View\HelperPluginManager */
-        $view         = $serviceManager->get('ViewHelperManager');
-		
+
+		/* @var $view HelperPluginManager */
+		$view = $serviceManager->get('ViewHelperManager');
+
 		$markdown = $view->get('markdown');
 		$this->assertInstanceOf('MaglMarkdown\View\Helper\Markdown', $markdown);
 		$this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
