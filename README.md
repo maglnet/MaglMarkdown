@@ -13,7 +13,7 @@ MaglMarkdown is developed by Matthias Glaub
 
 MaglMarkdown is a ZF2 module that adds a View Helper to transform [Markdown](http://daringfireball.net/projects/markdown/).
 
-You can use one of the following parsers for your Markdown:
+You can use one of the following parsers for your Markdown:  
 * The [PHP-Markdown](http://michelf.com/projects/php-markdown/) parser from Michel Fortin
 * The [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser from Michel Fortin (this is the default)
 * The [Parsedown](http://parsedown.org/) parser from Emanuil Rusev
@@ -22,7 +22,7 @@ You can use one of the following parsers for your Markdown:
 
 You can install the module with composer by adding the following "require" to your `composer.json`
 
-```
+```json
 {
 	"require": {
 		"maglnet/magl-markdown": "1.*"
@@ -31,16 +31,18 @@ You can install the module with composer by adding the following "require" to yo
 ```
 
 after that you need to run
-```
-php composer.phar update
+```bash
+$ php composer.phar update
 ```
 
 and enable the module within your `application.config.php`
-```
-'modules' => array(
-	'Application',
-	'MaglMarkdown',
-),
+```php
+array(
+	'modules' => array(
+		'Application',
+		'MaglMarkdown',
+	),
+);
 ```
 
 
@@ -48,7 +50,7 @@ and enable the module within your `application.config.php`
 
 Simply use it within your Views like this
 
-```
+```php
 $this->markdown('Yes, **this** is *Markdown*!');
 ```
 
@@ -66,9 +68,11 @@ and make it available throug the service manager.
 After that override the alias `MaglMarkdown\MarkdownAdapter`to point to your custom adapter.  
 MaglMarkdown will then use this class to transform the Markdown.
 
-```
-'aliases' => array(
-	'MaglMarkdown\MarkdownAdapter' => 'Your\Own\MarkdownAdapter', //needs to implement MaglMarkdown\Adapter\MarkdownAdapterInterface
+```php
+array(
+	'aliases' => array(
+		'MaglMarkdown\MarkdownAdapter' => 'Your\Own\MarkdownAdapter', //needs to implement MaglMarkdown\Adapter\MarkdownAdapterInterface
+	),
 )
 ```
 
@@ -90,5 +94,4 @@ All rights reserved.
 Based on Markdown  
 Copyright (c) 2003-2005 John Gruber  
 http://daringfireball.net/  
-All rights reserved.  
-
+All rights reserved.
