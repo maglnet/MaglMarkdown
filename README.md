@@ -57,6 +57,10 @@ Simply use it within your Views like this
 $this->markdown('Yes, **this** is *Markdown*!');
 ```
 
+*Security warning:*  
+You should be aware, that your markdown could contain insecure content (e.g. user generated content). 
+So use something like HTMLPurifier to sanitize your output.
+
 ## Configuration
 
 Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php`.  
