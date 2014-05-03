@@ -15,7 +15,7 @@ class ErusevParsedownAdapter implements MarkdownAdapterInterface
 	{
 		$parsedown = new \Parsedown();
 
-		return $parsedown->parse($text); # prints: <p>Hello <em>Parsedown</em>!</p>
+		return $parsedown->parse($text);
 	}
 
 }
