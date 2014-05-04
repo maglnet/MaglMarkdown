@@ -3,7 +3,7 @@
 namespace MaglMarkdown\Adapter;
 
 /**
- * The MarkdownAdapterInterface needs to be implemented by all adapters 
+ * The MarkdownAdapterInterface needs to be implemented by all adapters
  * that should be used by this module
  *
  * @author Matthias Glaub <magl@magl.net>
@@ -11,5 +11,5 @@ namespace MaglMarkdown\Adapter;
 interface MarkdownAdapterInterface
 {
 
-	public function transformText($text);
+    public function transformText($text);
 }

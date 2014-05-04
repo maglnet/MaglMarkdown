@@ -10,19 +10,20 @@ namespace MaglMarkdown\View\Helper;
 class Markdown extends \Zend\View\Helper\AbstractHelper
 {
 
-	/**
-	 *
-	 * @var \MaglMarkdown\Adapter\MarkdownAdapterInterface
-	 */
-	private $markdownAdapter;
+    /**
+     *
+     * @var \MaglMarkdown\Adapter\MarkdownAdapterInterface
+     */
+    private $markdownAdapter;
 
-    public function __construct(\MaglMarkdown\Adapter\MarkdownAdapterInterface $markdownAdapter){
+    public function __construct(\MaglMarkdown\Adapter\MarkdownAdapterInterface $markdownAdapter)
+    {
         $this->markdownAdapter = $markdownAdapter;
     }
-    
-	public function __invoke($text)
-	{
-		return $this->markdownAdapter->transformText($text);
-	}
+
+    public function __invoke($text)
+    {
+        return $this->markdownAdapter->transformText($text);
+    }
 
 }

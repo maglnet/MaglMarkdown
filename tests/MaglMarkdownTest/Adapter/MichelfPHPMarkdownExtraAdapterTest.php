@@ -10,17 +10,17 @@ namespace MaglMarkdownTest\Adapter;
 class MichelfPHPMarkdownExtraAdapterTest extends AbstractMarkdownAdapterTest
 {
 
-	/**
-	 * test if MichelfPHPMarkdownExtra adapter is properly setup and working
-	 */
-	public function testParserMichelfPHPMarkdownExtra()
-	{
-		$markdownAdapter = \MaglMarkdownTest\Bootstrap::getServiceManager()->get('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter');
+    /**
+     * test if MichelfPHPMarkdownExtra adapter is properly setup and working
+     */
+    public function testParserMichelfPHPMarkdownExtra()
+    {
+        $markdownAdapter = \MaglMarkdownTest\Bootstrap::getServiceManager()->get('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter');
 
-		$this->assertInstanceOf('\MaglMarkdown\Adapter\MarkdownAdapterInterface', $markdownAdapter);
-		$this->assertInstanceOf('\MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $markdownAdapter);
+        $this->assertInstanceOf('\MaglMarkdown\Adapter\MarkdownAdapterInterface', $markdownAdapter);
+        $this->assertInstanceOf('\MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $markdownAdapter);
 
-		$this->simpleSyntaxCheck($markdownAdapter);
-	}
+        $this->simpleSyntaxCheck($markdownAdapter);
+    }
 
 }

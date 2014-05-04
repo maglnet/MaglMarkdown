@@ -10,32 +10,32 @@ use Zend\View\HelperPluginManager;
  *
  * @author matthias
  */
-class ModuleTest extends \PHPUnit_Framework_TestCase
+class MarkdownTest extends \PHPUnit_Framework_TestCase
 {
 
-	public function testGetViewHelper()
-	{
-		$serviceManager = Bootstrap::getServiceManager();
+    public function testGetViewHelper()
+    {
+        $serviceManager = Bootstrap::getServiceManager();
 
-		/* @var $view HelperPluginManager */
-		$view = $serviceManager->get('ViewHelperManager');
+        /* @var $view HelperPluginManager */
+        $view = $serviceManager->get('ViewHelperManager');
 
-		$markdown = $view->get('markdown');
-		$this->assertInstanceOf('MaglMarkdown\View\Helper\Markdown', $markdown);
-		$this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
-	}
+        $markdown = $view->get('markdown');
+        $this->assertInstanceOf('MaglMarkdown\View\Helper\Markdown', $markdown);
+        $this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
+    }
 
-	public function testViewHelperWorking()
-	{
-		$serviceManager = Bootstrap::getServiceManager();
+    public function testViewHelperWorking()
+    {
+        $serviceManager = Bootstrap::getServiceManager();
 
-		/* @var $view HelperPluginManager */
-		$view = $serviceManager->get('ViewHelperManager');
+        /* @var $view HelperPluginManager */
+        $view = $serviceManager->get('ViewHelperManager');
 
-		$markdown = $view->get('markdown');
-		$text = $markdown('some sample string');
+        $markdown = $view->get('markdown');
+        $text = $markdown('some sample string');
 
-		$this->assertNotEmpty($text);
-	}
+        $this->assertNotEmpty($text);
+    }
 
 }

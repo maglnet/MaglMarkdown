@@ -11,9 +11,9 @@ namespace MaglMarkdown\Adapter;
 class MichelfPHPMarkdownAdapter implements MarkdownAdapterInterface
 {
 
-	public function transformText($text)
-	{
-		return \Michelf\Markdown::defaultTransform($text);
-	}
+    public function transformText($text)
+    {
+        return \Michelf\Markdown::defaultTransform($text);
+    }
 
 }

@@ -5,7 +5,7 @@ namespace MaglMarkdown;
 /**
  * MaglMarkdown is a ZF2 module to provide a View Helper that is able to
  * transform Markdown to html
- * 
+ *
  * @author Matthias Glaub <magl@magl.net>
  */
 class Module
@@ -26,11 +26,12 @@ class Module
             ),
         );
     }
-    
-    public function getViewHelperConfig(){
+
+    public function getViewHelperConfig()
+    {
         return array(
             'factories' => array(
-                'markdown' => function($sm){
+                'markdown' => function ($sm) {
                     $markdownAdapter = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
                     return new View\Helper\Markdown($markdownAdapter);
                 }
