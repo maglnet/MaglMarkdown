@@ -33,7 +33,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 		$view = $serviceManager->get('ViewHelperManager');
 
 		$markdown = $view->get('markdown');
-		$text = $markdown->__invoke('some sample string');
+		$text = $markdown('some sample string');
 
 		$this->assertNotEmpty($text);
 	}
