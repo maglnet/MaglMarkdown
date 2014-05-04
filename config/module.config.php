@@ -15,9 +15,4 @@ return array(
             'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
         ),
     ),
-    'view_helpers' => array(
-        'invokables' => array(
-            'markdown' => 'MaglMarkdown\View\Helper\Markdown'
-        ),
-    ),
 );

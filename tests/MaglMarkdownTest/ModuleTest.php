@@ -38,10 +38,9 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetViewHelperConfig()
 	{
-		$config = $this->instance->getConfig();
+		$config = $this->instance->getViewHelperConfig();
 
-		$this->assertTrue(array_key_exists('view_helpers', $config));
-		$this->assertTrue(array_key_exists('markdown', $config['view_helpers']['invokables']));
+		$this->assertTrue(array_key_exists('markdown', $config['factories']));
 	}
 
 	public function testGetAutoloaderConfig()

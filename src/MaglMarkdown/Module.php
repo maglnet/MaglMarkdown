@@ -26,4 +26,15 @@ class Module
             ),
         );
     }
+    
+    public function getViewHelperConfig(){
+        return array(
+            'factories' => array(
+                'markdown' => function($sm){
+                    $markdownAdapter = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
+                    return new View\Helper\Markdown($markdownAdapter);
+                }
+            )
+        );
+    }
 }
