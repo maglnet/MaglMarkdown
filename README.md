@@ -51,11 +51,23 @@ array(
 
 ## Usage
 
+### View Helper
 Simply use it within your Views like this
 
 ```php
 $this->markdown('Yes, **this** is *Markdown*!');
 ```
+
+### Service Manager
+You can also get a MarkdownAdapter through the Service Manager and use
+`transformText()` to get your Markdown rendered to HTML.
+
+```php
+/* @var $markdownAdapter MaglMarkdown\Adapter\MarkdownAdapterInterface */
+$markdownAdapter = $serviceManager->get('MaglMarkdown\MarkdownAdapter');
+$html = $markdownAdapter->transformText('Yes, **this** is *Markdown*!');
+```
+
 
 *Security warning:*  
 You should be aware, that your markdown could contain insecure content (e.g. user generated content). 
