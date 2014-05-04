@@ -29,11 +29,19 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 		$this->assertInstanceOf('MaglMarkdown\Module', $this->instance);
 	}
 
+	public function testConfigSerializable()
+	{
+		$config = $this->instance->getConfig();
+
+		$this->assertEquals($config, unserialize(serialize($config)));
+	}
+
 	public function testGetViewHelperConfig()
 	{
-		$config = $this->instance->getViewHelperConfig();
+		$config = $this->instance->getConfig();
 
-		$this->assertTrue(array_key_exists('markdown', $config['invokables']));
+		$this->assertTrue(array_key_exists('view_helpers', $config));
+		$this->assertTrue(array_key_exists('markdown', $config['view_helpers']['invokables']));
 	}
 
 	public function testGetAutoloaderConfig()
@@ -45,13 +53,14 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
 	public function testGetServiceConfig()
 	{
-		$config = $this->instance->getServiceConfig();
+		$config = $this->instance->getConfig();
 
-		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['invokables']));
-		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter', $config['invokables']));
-		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $config['invokables']));
+		$this->assertTrue(array_key_exists('service_manager', $config));
+		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['service_manager']['invokables']));
+		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter', $config['service_manager']['invokables']));
+		$this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $config['service_manager']['invokables']));
 
-		$this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['aliases']));
+		$this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['service_manager']['aliases']));
 	}
 
 	public function testGetDefaultAdapter()
