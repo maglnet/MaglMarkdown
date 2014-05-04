@@ -71,7 +71,7 @@ By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) p
 
 It is possible to add your own parser implementation.  
 All you have to do, is to write a class that implements the `MaglMarkdown\Adapter\MarkdownAdapterInterface` interface
-and make it available throug the service manager.  
+and make it available through the service manager.  
 After that override the alias `MaglMarkdown\MarkdownAdapter`to point to your custom adapter.  
 MaglMarkdown will then use this class to transform the Markdown.
 
