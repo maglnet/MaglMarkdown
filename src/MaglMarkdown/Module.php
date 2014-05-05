@@ -2,6 +2,13 @@
 
 namespace MaglMarkdown;
 
+use MaglMarkdown\Adapter\GithubMarkdownAdapter;
+use MaglMarkdown\View\Helper\Markdown;
+use Zend\Cache\StorageFactory;
+use Zend\Http\Client as HttpClient;
+use Zend\Mvc\MvcEvent;
+use MaglMarkdown\Cache\CacheListener;
+
 /**
  * MaglMarkdown is a ZF2 module to provide a View Helper that is able to
  * transform Markdown to html
@@ -10,6 +17,17 @@ namespace MaglMarkdown;
  */
 class Module
 {
+
+    public function onBootstrap(MvcEvent $e)
+    {
+        // attach the cache listener, if caching is enabled
+        $sm = $e->getApplication()->getServiceManager();
+        $config = $sm->get('Config');
+        if($config['magl_markdown']['cache_enabled']){
+            $em = $e->getApplication()->getEventManager();
+            $em->attachAggregate($sm->get('MaglMarkdown\CacheListener'));
+        }
+    }
 
     public function getConfig()
     {
@@ -33,8 +51,26 @@ class Module
             'factories' => array(
                 'markdown' => function ($sm) {
                     $markdownAdapter = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
-                    return new View\Helper\Markdown($markdownAdapter);
+                    return new Markdown($markdownAdapter);
                 }
+            )
+        );
+    }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                // cache listener to handle caching
+                'MaglMarkdown\CacheListener' => function ($sm) {
+                    return new CacheListener($sm->get('MaglMarkdown\Cache'));
+                },
+                // cache to store rendered markdown
+                'MaglMarkdown\Cache' => function ($sm) {
+                    $config = $sm->get('Config');
+                    $cache = StorageFactory::factory($config['magl_markdown']['cache']);
+                    return $cache;
+                },
             )
         );
     }
