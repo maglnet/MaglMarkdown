@@ -38,6 +38,7 @@ class Module
             'factories' => array(
                 'markdown' => function ($sm) {
                     $markdownAdapter = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
+
                     return new Markdown($markdownAdapter);
                 }
             )
@@ -49,18 +50,20 @@ class Module
         return array(
             'factories' => array(
                 // the github markdown adapter
-                'MaglMarkdown\Adapter\GithubMarkdownAdapter' => function($sm) {
+                'MaglMarkdown\Adapter\GithubMarkdownAdapter' => function ($sm) {
                     $request = new \Zend\Http\Request();
-            
+
                     $client = new HttpClient();
                     $client->setAdapter('Zend\Http\Client\Adapter\Curl');
-                    
+
                     $options = $sm->get('MaglMarkdown\Adapter\GithubMarkdownOptions');
+
                     return new GithubMarkdownAdapter($client, $request, $options);
                 },
                 // options for the github adapter
-                'MaglMarkdown\Adapter\GithubMarkdownOptions' => function($sm) {
+                'MaglMarkdown\Adapter\GithubMarkdownOptions' => function ($sm) {
                     $config = $sm->get('Config');
+
                     return new GithubMarkdownOptions($config['magl_markdown']['adapter_config']['github_markdown']);
                 },
             ),

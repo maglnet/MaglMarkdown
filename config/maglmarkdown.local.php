@@ -8,7 +8,7 @@ return array(
                 // you can get one for you account at the settings -> applications page
                 // https://github.com/settings/applications
                 'access_token' => '',
-                
+
             )
         ),
     ),

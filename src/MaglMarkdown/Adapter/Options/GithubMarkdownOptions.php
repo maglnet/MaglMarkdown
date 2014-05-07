@@ -26,13 +26,12 @@ class GithubMarkdownOptions extends AbstractOptions
      * @var string
      */
     protected $markdownApiUri = 'https://api.github.com/markdown';
-    
+
     /**
      *
      * @var string
      */
     protected $markdownMode = 'markdown';
-    
 
     public function getMarkdownApiUri()
     {
@@ -53,7 +52,7 @@ class GithubMarkdownOptions extends AbstractOptions
     {
         $this->accessToken = $accessToken;
     }
-    
+
     public function getMarkdownMode()
     {
         return $this->markdownMode;
@@ -63,5 +62,5 @@ class GithubMarkdownOptions extends AbstractOptions
     {
         $this->markdownMode = $markdownMode;
     }
-    
+
 }

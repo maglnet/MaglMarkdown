@@ -12,12 +12,12 @@ return array(
             'github_markdown' => array(
                 // markdown mode, one of 'markdown' or 'gfm'
                 'markdown_mode' => 'markdown',
-                
+
                 // api endpoint to use
                 'markdown_api_uri' => 'https://api.github.com/markdown',
             )
         ),
-    ), 
+    ),
     //config for service manager
     'service_manager' => array(
         'invokables' => array(
