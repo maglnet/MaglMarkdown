@@ -6,9 +6,6 @@
 
 return array(
     'magl_markdown' => array(
-        // use the configured cache interface
-        'cache_enabled' => true,
-        
         // configuration options for the adapters
         'adapter_config' => array(
             // config for github markdown adapter

@@ -5,7 +5,6 @@ namespace MaglMarkdown;
 use MaglMarkdown\Adapter\GithubMarkdownAdapter;
 use MaglMarkdown\Adapter\Options\GithubMarkdownOptions;
 use MaglMarkdown\View\Helper\Markdown;
-use Zend\Cache\StorageFactory;
 use Zend\Http\Client as HttpClient;
 
 /**
