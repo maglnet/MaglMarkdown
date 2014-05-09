@@ -14,4 +14,7 @@
 	<logging>
 		<log type="coverage-clover" target="./log/coverage.xml"/>
 	</logging>
+    <logging>
+        <log type="coverage-text" target="php://stdout"/>
+    </logging>    
 </phpunit>
