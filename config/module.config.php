@@ -9,6 +9,18 @@ return array(
         // use the configured cache interface
         'cache_enabled' => false,
         
+        // configuration options for the adapters
+        'adapter_config' => array(
+            // config for github markdown adapter
+            'github_markdown' => array(
+                // markdown mode, one of 'markdown' or 'gfm'
+                'markdown_mode' => 'gfm',
+
+                // api endpoint to use
+                'markdown_api_uri' => 'https://api.github.com/markdown',
+            )
+        ),
+        
         // cache config to store rendered markdown
         'cache' => array(
             'adapter' => array(

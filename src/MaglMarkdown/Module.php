@@ -2,10 +2,15 @@
 
 namespace MaglMarkdown;
 
+use MaglMarkdown\Adapter\GithubMarkdownAdapter;
+use MaglMarkdown\Adapter\Options\GithubMarkdownOptions;
+use MaglMarkdown\Cache\CacheListener;
+use MaglMarkdown\Service\Markdown as MarkdownService;
 use MaglMarkdown\View\Helper\Markdown;
 use Zend\Cache\StorageFactory;
+use Zend\Http\Client as HttpClient;
+use Zend\Http\Request;
 use Zend\Mvc\MvcEvent;
-use MaglMarkdown\Cache\CacheListener;
 
 /**
  * MaglMarkdown is a ZF2 module to provide a View Helper that is able to
@@ -83,11 +88,27 @@ class Module
                         $em = $sm->get('Application')->getEventManager();
                     }
 
-                    $markdownService = new Service\Markdown($markdownAdapter, $em);
-
+                    $markdownService = new MarkdownService($markdownAdapter, $em);
                     return $markdownService;
                 },
-            )
+                // the github markdown adapter
+                'MaglMarkdown\Adapter\GithubMarkdownAdapter' => function ($sm) {
+                    $request = new Request();
+
+                    $client = new HttpClient();
+                    $client->setAdapter('Zend\Http\Client\Adapter\Curl');
+
+                    $options = $sm->get('MaglMarkdown\Adapter\GithubMarkdownOptions');
+
+                    return new GithubMarkdownAdapter($client, $request, $options);
+                },
+                // options for the github adapter
+                'MaglMarkdown\Adapter\GithubMarkdownOptions' => function ($sm) {
+                    $config = $sm->get('Config');
+
+                    return new GithubMarkdownOptions($config['magl_markdown']['adapter_config']['github_markdown']);
+                },
+            ),
         );
     }
 }
