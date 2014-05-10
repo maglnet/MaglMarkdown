@@ -2,10 +2,8 @@
 
 namespace MaglMarkdown;
 
-use MaglMarkdown\Adapter\GithubMarkdownAdapter;
 use MaglMarkdown\View\Helper\Markdown;
 use Zend\Cache\StorageFactory;
-use Zend\Http\Client as HttpClient;
 use Zend\Mvc\MvcEvent;
 use MaglMarkdown\Cache\CacheListener;
 
@@ -23,7 +21,7 @@ class Module
         // attach the cache listener, if caching is enabled
         $sm = $e->getApplication()->getServiceManager();
         $config = $sm->get('Config');
-        if($config['magl_markdown']['cache_enabled']){
+        if ($config['magl_markdown']['cache_enabled']) {
             $em = $e->getApplication()->getEventManager();
             $em->attachAggregate($sm->get('MaglMarkdown\CacheListener'));
         }
@@ -50,8 +48,9 @@ class Module
         return array(
             'factories' => array(
                 'markdown' => function ($sm) {
-                    $markdownAdapter = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownAdapter');
-                    return new Markdown($markdownAdapter);
+                    $markdownService = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownService');
+
+                    return new Markdown($markdownService);
                 }
             )
         );
@@ -69,7 +68,24 @@ class Module
                 'MaglMarkdown\Cache' => function ($sm) {
                     $config = $sm->get('Config');
                     $cache = StorageFactory::factory($config['magl_markdown']['cache']);
+
                     return $cache;
+                },
+                // Markdown Service, to support caching
+                'MaglMarkdown\MarkdownService' => function ($sm) {
+                    $em = null;
+                    $markdownAdapter = $sm->get('MaglMarkdown\MarkdownAdapter');
+
+                    // get / inject eventmanager only if cache is enabled
+                    $config = $sm->get('Config');
+                    $cacheEnabled = $config['magl_markdown']['cache_enabled'];
+                    if ($cacheEnabled) {
+                        $em = $sm->get('Application')->getEventManager();
+                    }
+
+                    $markdownService = new Service\Markdown($markdownAdapter, $em);
+
+                    return $markdownService;
                 },
             )
         );

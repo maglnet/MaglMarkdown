@@ -44,14 +44,18 @@ class CacheListenerTest extends \PHPUnit_Framework_TestCase
         $event->setParam('markdown', $myMarkdown);
         $event->setParam('renderedMarkdown', $myRenderedMarkdown);
         
-        // test no entry in cache
+        // test return null, if no entry in cache
         $this->assertFalse($cacheListener->preRender($event));
         
         // test insert entry
         $this->assertTrue($cacheListener->postRender($event));
         
-        //test getting the rendered markdown after setting it
+        //test returning the rendered markdown after setting it
         $this->assertEquals($myRenderedMarkdown, $cacheListener->preRender($event));
-        
+
+        // test return null, if no entry in cache
+        $event->setParam('markdown', 'must not be found');
+        $this->assertFalse($cacheListener->preRender($event));
+
     }
 }
