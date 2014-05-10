@@ -1,4 +1,4 @@
-# MaglMarkdown
+# MaglMarkdown - ZF2 View Helper For Markdown
 
 [![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.png)](https://packagist.org/packages/maglnet/magl-markdown)
 [![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.png)](https://packagist.org/packages/maglnet/magl-markdown)
@@ -15,6 +15,7 @@ MaglMarkdown is developed by Matthias Glaub
 ## Introduction
 
 MaglMarkdown is a ZF2 module that adds a View Helper to transform [Markdown](http://daringfireball.net/projects/markdown/).
+To change between different renderers have a look at the [config section](#configuration)
 
 You can use one of the following parsers for your Markdown:  
 * The [PHP-Markdown](http://michelf.com/projects/php-markdown/) parser from Michel Fortin
@@ -22,6 +23,7 @@ You can use one of the following parsers for your Markdown:
 * The [Parsedown](http://parsedown.org/) parser from Emanuil Rusev
 * [Github Markdown Api](https://guides.github.com/features/mastering-markdown/)
   * you should provide an access_token within the config, to avoid hitting the [rate_limit](https://developer.github.com/v3/rate_limit/) too soon
+  * it's highly recommended to enable caching if you use the Github Api because of the mentioned rate_limit and to boost performance
 
 ## Installation
 
@@ -89,9 +91,8 @@ You should be aware, that your markdown could contain insecure content (e.g. use
 So use something like HTMLPurifier to sanitize your output.
 
 ## Configuration
-
-Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php`.  
-There you can choose between the provided parsers, simply comment out one of the lines to enable a different parser.  
+Copy the provided config file `config/maglmarkdown.local.php` to your
+autoloading directory `YourZF2Application/config/autoload/maglmarkdown.local.php` and adjust it to your needs.    
 By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser by Michel Fortin is used.  
 
 ### Cache
@@ -102,7 +103,7 @@ that relies on third-party APIs that either are rate limited or take a long time
 
 A simple filesystem cache is configured by default, but feel free to configure your own adapter.
 
-## Adding own parsers
+### Adding own parsers
 
 It is possible to add your own parser implementation.  
 All you have to do, is to write a class that implements the `MaglMarkdown\Adapter\MarkdownAdapterInterface` interface

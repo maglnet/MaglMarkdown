@@ -2,7 +2,7 @@
 
 return array(
     'magl_markdown' => array(
-        // use the configured cache interface
+        // use the configured cache interface to cache the rendered markdown
         //'cache_enabled' => true,
         
         // cache config to store rendered markdown
@@ -22,9 +22,10 @@ return array(
             ),
         ),
         */
+        // configuration options for the adapters
         'adapter_config' => array(
             'github_markdown' => array(
-                // the access token to authenticate to the api
+                // the access token to authenticate to the github api
                 // you can get one for you account at the settings -> applications page
                 // https://github.com/settings/applications
                 'access_token' => '',
@@ -34,6 +35,10 @@ return array(
             )
         ),
     ),
+    // here you can switch the used markdown adapter
+    // enable ONE of the parsers to override the default
+    // if you need more informations about a parser check the README.md, you'll
+    // find links to detailed descriptions about the parsers
     'service_manager' => array(
         'aliases' => array(
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
