@@ -62,6 +62,15 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['service_manager']['aliases']));
     }
 
+    public function testGetServiceFactories()
+    {
+        $config = $this->instance->getServiceConfig();
+
+        $this->assertTrue(array_key_exists('factories', $config));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownAdapter', $config['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownOptions', $config['factories']));
+    }
+
     public function testGetDefaultAdapter()
     {
         $markdown = Bootstrap::getServiceManager()->get('MaglMarkdown\MarkdownAdapter');
