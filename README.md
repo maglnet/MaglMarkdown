@@ -59,8 +59,21 @@ $this->markdown('Yes, **this** is *Markdown*!');
 ```
 
 ### Service Manager
+You can get the MarkdownService through the Service Manager, to use
+the `render()` method wherever you like within you zf2 application.
+`MarkdownService` automatically uses caching if it has been enabled within the
+config.
+
+```php
+/* @var $markdownService MaglMarkdown\Service\Markdown */
+$markdownService = $serviceManager->get('MaglMarkdown\MarkdownService');
+$html = $markdownService->render('Yes, **this** is *Markdown*!');
+```
+
 You can also get a MarkdownAdapter through the Service Manager and use
-`transformText()` to get your Markdown rendered to HTML.
+`transformText()` to get your Markdown rendered to HTML.  
+This is **NOT** recommended anymore. Use the above mentioned `MarkdownService` instead
+because it can use the provided caching mechanism.
 
 ```php
 /* @var $markdownAdapter MaglMarkdown\Adapter\MarkdownAdapterInterface */
@@ -78,6 +91,14 @@ So use something like HTMLPurifier to sanitize your output.
 Have a look at the provided config file `config/maglmarkdown.local.php` and copy it to `YourZF2Application/config/autoload/maglmarkdown.php`.  
 There you can choose between the provided parsers, simply comment out one of the lines to enable a different parser.  
 By default [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser by Michel Fortin is used.  
+
+### Cache
+By default, caching is disabled.
+Set `cache_enabled` to `true` within `config/maglmarkdown.local.php` to enable the caching.
+Caching could be very helpful if you have large markdown files/texts or if you're using an Adapter
+that relies on third-party APIs that either are rate limited or take a long time to render.
+
+A simple filesystem cache is configured by default, but feel free to configure your own adapter.
 
 ## Adding own parsers
 
