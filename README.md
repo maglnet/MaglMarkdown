@@ -28,7 +28,7 @@ You can install the module with composer by adding the following "require" to yo
 ```json
 {
 	"require": {
-		"maglnet/magl-markdown": "1.*"
+		"maglnet/magl-markdown": "~1.1"
 	}
 }
 ```
