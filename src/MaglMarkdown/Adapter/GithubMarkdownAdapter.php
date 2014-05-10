@@ -63,5 +63,4 @@ class GithubMarkdownAdapter implements MarkdownAdapterInterface
 
         return $renderedMarkdown;
     }
-
 }

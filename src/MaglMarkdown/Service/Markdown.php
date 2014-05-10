@@ -11,6 +11,7 @@ use Zend\EventManager\EventManagerInterface;
 
 class Markdown
 {
+
     /**
      *
      * @var MarkdownAdapterInterface
@@ -52,7 +53,5 @@ class Markdown
         }
 
         return $renderedMarkdown;
-
     }
-
 }

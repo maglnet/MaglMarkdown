@@ -13,6 +13,7 @@ use Zend\EventManager\ListenerAggregateInterface;
 
 class CacheListener implements ListenerAggregateInterface
 {
+
     private $listeners = array();
 
     /**
@@ -78,5 +79,4 @@ class CacheListener implements ListenerAggregateInterface
 
         return $this->cache->setItem($markdownHash, $renderedMarkdown);
     }
-
 }

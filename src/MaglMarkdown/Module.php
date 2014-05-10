@@ -53,7 +53,8 @@ class Module
         return array(
             'factories' => array(
                 'markdown' => function ($sm) {
-                    $markdownService = $sm->getServiceLocator()->get('MaglMarkdown\MarkdownService');
+                    $markdownService = $sm->getServiceLocator()
+                        ->get('MaglMarkdown\MarkdownService');
 
                     return new Markdown($markdownService);
                 }

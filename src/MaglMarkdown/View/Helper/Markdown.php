@@ -25,5 +25,4 @@ class Markdown extends \Zend\View\Helper\AbstractHelper
     {
         return $this->markdownService->render($text);
     }
-
 }

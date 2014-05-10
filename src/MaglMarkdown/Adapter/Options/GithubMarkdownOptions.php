@@ -62,5 +62,4 @@ class GithubMarkdownOptions extends AbstractOptions
     {
         $this->markdownMode = $markdownMode;
     }
-
 }

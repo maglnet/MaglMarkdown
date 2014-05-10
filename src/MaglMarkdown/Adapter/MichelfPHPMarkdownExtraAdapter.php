@@ -15,5 +15,4 @@ class MichelfPHPMarkdownExtraAdapter implements MarkdownAdapterInterface
     {
         return \Michelf\MarkdownExtra::defaultTransform($text);
     }
-
 }
