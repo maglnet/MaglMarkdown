@@ -70,7 +70,7 @@ class CacheListener implements ListenerAggregateInterface
         
         $markdownHash = md5($markdown);
         
-        $this->cache->setItem($markdownHash, $renderedMarkdown);
+        return $this->cache->setItem($markdownHash, $renderedMarkdown);
     }
 
 }
