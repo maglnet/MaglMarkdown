@@ -43,7 +43,7 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         
         $responseCollection = new \Zend\EventManager\ResponseCollection();
         $responseCollection->setStopped(true);
-        $responseCollection->add(0, $renderedMarkdown);
+        $responseCollection->push($renderedMarkdown);
         
         $emMock = $this->getMock('\Zend\EventManager\EventManager');
         
