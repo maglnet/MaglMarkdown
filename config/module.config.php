@@ -11,7 +11,7 @@ return array(
             // config for github markdown adapter
             'github_markdown' => array(
                 // markdown mode, one of 'markdown' or 'gfm'
-                'markdown_mode' => 'markdown',
+                'markdown_mode' => 'gfm',
 
                 // api endpoint to use
                 'markdown_api_uri' => 'https://api.github.com/markdown',

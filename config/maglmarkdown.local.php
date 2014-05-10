@@ -8,7 +8,9 @@ return array(
                 // you can get one for you account at the settings -> applications page
                 // https://github.com/settings/applications
                 'access_token' => '',
-
+                
+                // markdown mode, one of 'markdown' or 'gfm' (default: 'gfm')
+                //'markdown_mode' => 'gfm',
             )
         ),
     ),

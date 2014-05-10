@@ -31,7 +31,7 @@ class GithubMarkdownOptions extends AbstractOptions
      *
      * @var string
      */
-    protected $markdownMode = 'markdown';
+    protected $markdownMode = 'gfm';
 
     public function getMarkdownApiUri()
     {
