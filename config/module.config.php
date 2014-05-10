@@ -7,7 +7,7 @@
 return array(
     'magl_markdown' => array(
         // use the configured cache interface
-        'cache_enabled' => true,
+        'cache_enabled' => false,
         
         // cache config to store rendered markdown
         'cache' => array(

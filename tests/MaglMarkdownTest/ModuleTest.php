@@ -70,6 +70,13 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $markdown);
     }
 
+    public function testCacheDisabledByDefault()
+    {
+        $config = $this->instance->getConfig();
+        
+        $this->assertFalse($config['magl_markdown']['cache_enabled']);
+    }
+
     public function testGetViewHelper()
     {
         $serviceManager = Bootstrap::getServiceManager();
