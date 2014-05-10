@@ -2,3 +2,4 @@
 /composer.phar
 /tests/log/
 /nbproject/
+/tests/data/cache/*
