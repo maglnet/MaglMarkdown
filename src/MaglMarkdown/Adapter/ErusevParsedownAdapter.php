@@ -11,11 +11,19 @@ namespace MaglMarkdown\Adapter;
 class ErusevParsedownAdapter implements MarkdownAdapterInterface
 {
 
-    public function transformText($text)
-    {
-        $parsedown = new \Parsedown();
+    /**
+     *
+     * @var \Parsedown
+     */
+    private $parser;
 
-        return $parsedown->parse($text);
+    public function __construct()
+    {
+        $this->parser = new \Parsedown();
     }
 
+    public function transformText($text)
+    {
+        return $this->parser->parse($text);
+    }
 }
