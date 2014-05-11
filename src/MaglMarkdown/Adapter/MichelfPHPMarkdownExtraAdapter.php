@@ -20,12 +20,7 @@ class MichelfPHPMarkdownExtraAdapter implements MarkdownAdapterInterface
     public function __construct(array $options = null)
     {
         $this->parser = new \Michelf\MarkdownExtra();
-        // set the parsers options
-        if($options){
-            foreach ($options as $key => $value) {
-                $this->parser->$key = $value;
-            }
-        }
+        $this->setParserOptions($this->parser, $options);
     }
 
     public function transformText($text)
