@@ -56,8 +56,6 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
         $this->assertTrue(array_key_exists('service_manager', $config));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['service_manager']['invokables']));
-        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter', $config['service_manager']['invokables']));
-        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $config['service_manager']['invokables']));
 
         $this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['service_manager']['aliases']));
     }
@@ -69,6 +67,8 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array_key_exists('factories', $config));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownAdapter', $config['factories']));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownOptions', $config['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter', $config['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $config['factories']));
     }
 
     public function testGetDefaultAdapter()
