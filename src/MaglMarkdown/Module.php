@@ -109,6 +109,16 @@ class Module
 
                     return new GithubMarkdownOptions($config['magl_markdown']['adapter_config']['github_markdown']);
                 },
+                // Michel Fortin's Markdown Extra Adapter
+                'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => function ($sm) {
+                    $config = $sm->get('Config');
+                    return new Adapter\MichelfPHPMarkdownExtraAdapter($config['magl_markdown']['adapter_config']['michelf_markdown_extra']);
+                },
+                // Michel Fortin's Markdown Adapter
+                'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter' => function ($sm) {
+                    $config = $sm->get('Config');
+                    return new Adapter\MichelfPHPMarkdownAdapter($config['magl_markdown']['adapter_config']['michelf_markdown']);
+                },
             ),
         );
     }

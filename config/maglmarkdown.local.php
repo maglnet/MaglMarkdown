@@ -32,7 +32,19 @@ return array(
                 
                 // markdown mode, one of 'markdown' or 'gfm' (default: 'gfm')
                 //'markdown_mode' => 'gfm',
-            )
+            ),
+            // config for Michel Fortin's markdown adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
+            'michelf_markdown' => array(
+                //'empty_element_suffix' => ' />',
+            ),
+            // config for Michel Fortin's markdown extra adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
+            'michelf_markdown_extra' => array(
+                //'empty_element_suffix' => ' />',
+            ),
         ),
     ),
     // here you can switch the used markdown adapter

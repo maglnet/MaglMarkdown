@@ -11,8 +11,25 @@ namespace MaglMarkdown\Adapter;
 class MichelfPHPMarkdownExtraAdapter implements MarkdownAdapterInterface
 {
 
+    /**
+     *
+     * @var \Michelf\MarkdownExtra
+     */
+    private $parser;
+
+    public function __construct(array $options = null)
+    {
+        $this->parser = new \Michelf\MarkdownExtra();
+        // set the parsers options
+        if($options){
+            foreach ($options as $key => $value) {
+                $this->parser->$key = $value;
+            }
+        }
+    }
+
     public function transformText($text)
     {
-        return \Michelf\MarkdownExtra::defaultTransform($text);
+        return $this->parser->transform($text);
     }
 }

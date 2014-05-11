@@ -18,7 +18,15 @@ return array(
 
                 // api endpoint to use
                 'markdown_api_uri' => 'https://api.github.com/markdown',
-            )
+            ),
+            // config for Michel Fortin's markdown adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
+            'michelf_markdown' => array(),
+            // config for Michel Fortin's markdown extra adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
+            'michelf_markdown_extra' => array(),
         ),
         
         // cache config to store rendered markdown
@@ -39,8 +47,6 @@ return array(
     'service_manager' => array(
         'invokables' => array(
             'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
-            'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter',
-            'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter',
         ),
         'aliases' => array(
             'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
