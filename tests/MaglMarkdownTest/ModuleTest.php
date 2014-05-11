@@ -82,7 +82,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
     public function testCacheDisabledByDefault()
     {
         $config = $this->instance->getConfig();
-        
+
         $this->assertFalse($config['magl_markdown']['cache_enabled']);
     }
 
@@ -98,4 +98,53 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
     }
 
+    public function testAddsEventListener()
+    {
+
+        $smClone = clone Bootstrap::getServiceManager();
+        $smClone->setAllowOverride(true);
+        $smClone->setService('Config', array(
+            'magl_markdown' => array(
+                'cache_enabled' => true
+            )
+        ));
+
+
+        $cacheListenerMock = $this->getMockBuilder('\MaglMarkdown\Cache\CacheListener')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $smClone->setService('MaglMarkdown\CacheListener', $cacheListenerMock);
+
+        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $emMock->expects($this->once())
+            ->method('attachAggregate')
+            ->with($cacheListenerMock);
+
+        $applicationMock = $this->getMockBuilder('\Zend\Mvc\Application')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $applicationMock->expects($this->once())
+            ->method('getServiceManager')
+            ->willReturn($smClone);
+
+        $applicationMock->expects($this->once())
+            ->method('getEventManager')
+            ->willReturn($emMock);
+
+        $eventMock = $this->getMockBuilder('\Zend\Mvc\MvcEvent')
+            ->disableOriginalConstructor()
+            ->getMock();
+
+        $eventMock->expects($this->any())
+            ->method('getApplication')
+            ->willReturn($applicationMock);
+
+
+        $this->instance->onBootstrap($eventMock);
+    }
 }
