@@ -8,7 +8,7 @@ namespace MaglMarkdown\Adapter;
  * @see http://michelf.ca/projects/php-markdown/extra/ Michel Fortin's PHP Markdown Extra
  * @author Matthias Glaub <magl@magl.net>
  */
-class MichelfPHPMarkdownExtraAdapter implements MarkdownAdapterInterface
+class MichelfPHPMarkdownExtraAdapter extends AbstractMichelfPHPMarkdown implements MarkdownAdapterInterface
 {
 
     /**
