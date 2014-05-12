@@ -33,11 +33,9 @@ class Markdown
     public function render($markdown)
     {
         // first check if there's something within the cache
-        if ($this->eventManager) {
-            $result = $this->eventManager->trigger('markdown.render.pre', $this, array('markdown' => $markdown));
-            if ($result->stopped()) {
-                return $result->last();
-            }
+        $cachedMarkdown = $this->triggerEvent('markdown.render.pre', array('markdown' => $markdown));
+        if (false !== $cachedMarkdown) {
+            return $cachedMarkdown;
         }
 
         // now render, it seems cache is not active
@@ -45,13 +43,27 @@ class Markdown
         $renderedMarkdown = $this->markdownAdapter->transformText($markdown);
 
         // save the rendered markdown to the cache
-        if ($this->eventManager) {
-            $this->eventManager->trigger('markdown.render.post', $this, array(
-                'markdown' => $markdown,
-                'renderedMarkdown' => $renderedMarkdown
-            ));
-        }
+        $this->triggerEvent('markdown.render.post', array(
+            'markdown' => $markdown,
+            'renderedMarkdown' => $renderedMarkdown
+        ));
 
         return $renderedMarkdown;
+    }
+
+    private function triggerEvent($event, $args)
+    {
+        // if there's no eventmanager, we don't need to trigger anything
+        if (!$this->eventManager) {
+            return false;
+        }
+
+        // triggering the event and return result, if event stopped
+        $result = $this->eventManager->trigger($event, $this, $args);
+        if ($result->stopped()) {
+            return $result->last();
+        }
+
+        return false;
     }
 }
