@@ -24,6 +24,6 @@ class ErusevParsedownAdapter implements MarkdownAdapterInterface
 
     public function transformText($text)
     {
-        return $this->parser->parse($text);
+        return $this->parser->text($text);
     }
 }
