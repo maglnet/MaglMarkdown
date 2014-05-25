@@ -45,8 +45,6 @@ abstract class AbstractMarkdownAdapterTest extends \PHPUnit_Framework_TestCase
             $renderedMarkdown = trim($renderedMarkdown);
             $renderedMarkdown = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $renderedMarkdown);
             
-            echo $renderedMarkdown;
-            
             $expectedResult = file_get_contents($filename.'.result');
             
             $this->assertEquals($expectedResult, $renderedMarkdown);
