@@ -21,6 +21,7 @@ class MichelfPHPMarkdownExtraAdapterTest extends AbstractMarkdownAdapterTest
         $this->assertInstanceOf('\MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $markdownAdapter);
 
         $this->simpleSyntaxCheck($markdownAdapter);
+        $this->extendedSyntaxCheck($markdownAdapter);
     }
 
 }

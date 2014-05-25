@@ -28,5 +28,30 @@ abstract class AbstractMarkdownAdapterTest extends \PHPUnit_Framework_TestCase
         $text = trim($markdownAdapter->transformText('**test string**'));
         $this->assertEquals('<p><strong>test string</strong></p>', $text);
     }
+    
+    protected function extendedSyntaxCheck(\MaglMarkdown\Adapter\MarkdownAdapterInterface $markdownAdapter)
+    {
+        
+        $testFiles = glob(__DIR__.'/tests/*.md');
+        
+        foreach($testFiles as $filename){
+            
+            $markdownString = file_get_contents($filename);
+            
+            $renderedMarkdown = $markdownAdapter->transformText($markdownString);
+            
+            // we'll slightly modify the rendered output to be more compatible
+            // like removing blank lines
+            $renderedMarkdown = trim($renderedMarkdown);
+            $renderedMarkdown = preg_replace("/(^[\r\n]*|[\r\n]+)[\s\t]*[\r\n]+/", "\n", $renderedMarkdown);
+            
+            echo $renderedMarkdown;
+            
+            $expectedResult = file_get_contents($filename.'.result');
+            
+            $this->assertEquals($expectedResult, $renderedMarkdown);
+            
+        }
+    }
 
 }

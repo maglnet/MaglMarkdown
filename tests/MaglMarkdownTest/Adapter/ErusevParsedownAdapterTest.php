@@ -21,6 +21,7 @@ class ErusevParsedownAdapterTest extends AbstractMarkdownAdapterTest
         $this->assertInstanceOf('\MaglMarkdown\Adapter\ErusevParsedownAdapter', $markdownAdapter);
 
         $this->simpleSyntaxCheck($markdownAdapter);
+        $this->extendedSyntaxCheck($markdownAdapter);
     }
 
 }
