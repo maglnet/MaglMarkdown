@@ -119,6 +119,15 @@ array(
 )
 ```
 
+## Events
+
+The markdown service triggers two events you can listen to:
+* `markdown.render.pre` before rendering (with the markdown text as parameter)
+* `markdown.render.post` after rendering (with the rendered markdown as parameter)
+
+These events are currently used for the integrated caching feature only,
+but do whatever you like with these events.
+
 ## License
 
 MaglMarkdown is licensed under the MIT license.  
