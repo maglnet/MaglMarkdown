@@ -1,11 +1,11 @@
 # MaglMarkdown - ZF2 View Helper For Markdown
 
-[![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.png)](https://packagist.org/packages/maglnet/magl-markdown)
-[![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.png)](https://packagist.org/packages/maglnet/magl-markdown)
-[![License](https://poser.pugx.org/maglnet/magl-markdown/license.png)](https://packagist.org/packages/maglnet/magl-markdown)
-[![Dependency Status](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0/badge.png)](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/quality-score.png?s=7eae6389efc0ce777f8d7a4439cce5ad99ec8e01)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/)
-[![Code Coverage](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/coverage.png?s=32e6c5cc905fe1e7cb3914d0ca08818f7af455de)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/)
+[![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![License](https://poser.pugx.org/maglnet/magl-markdown/license.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Dependency Status](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0/badge.svg)](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
 
 
 dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.png?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
