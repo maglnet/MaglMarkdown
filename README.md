@@ -8,7 +8,7 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
 
 
-dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.png?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
+dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.svg?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
 
 MaglMarkdown is developed by Matthias Glaub
 
