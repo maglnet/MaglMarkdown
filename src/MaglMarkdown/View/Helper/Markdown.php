@@ -2,12 +2,14 @@
 
 namespace MaglMarkdown\View\Helper;
 
+use Zend\View\Helper\AbstractHelper;
+
 /**
  * This is a ZF2 View Helper to provide Markdown transformation
  *
  * @author Matthias Glaub <magl@magl.net>
  */
-class Markdown extends \Zend\View\Helper\AbstractHelper
+class Markdown extends AbstractHelper
 {
 
     /**
