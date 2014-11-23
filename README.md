@@ -21,6 +21,7 @@ You can use one of the following parsers for your Markdown:
 * The [PHP-Markdown](http://michelf.com/projects/php-markdown/) parser from Michel Fortin
 * The [PHP-MarkdownExtra](http://michelf.ca/projects/php-markdown/extra/) parser from Michel Fortin (this is the default)
 * The [Parsedown](http://parsedown.org/) parser from Emanuil Rusev
+* The [Parsedown-Extra](http://parsedown.org/) parser from Emanuil Rusev
 * [Github Markdown Api](https://guides.github.com/features/mastering-markdown/)
   * you should provide an access_token within the config, to avoid hitting the [rate_limit](https://developer.github.com/v3/rate_limit/) too soon
   * it's highly recommended to enable caching if you use the Github Api because of the mentioned rate_limit and to boost performance
