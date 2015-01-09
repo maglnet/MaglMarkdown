@@ -25,7 +25,7 @@ You can use one of the following parsers for your Markdown:
 * [Github Markdown Api](https://guides.github.com/features/mastering-markdown/)
   * you should provide an access_token within the config, to avoid hitting the [rate_limit](https://developer.github.com/v3/rate_limit/) too soon
   * it's highly recommended to enable caching if you use the Github Api because of the mentioned rate_limit and to boost performance
-* The [PHP League's CommonMark](http://parsedown.org/) https://github.com/thephpleague/commonmark
+* The [PHP League's CommonMark](https://github.com/thephpleague/commonmark) implementation
 
 ## Installation
 
