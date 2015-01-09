@@ -48,6 +48,7 @@ return array(
         'invokables' => array(
             'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
             'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
+            'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
         ),
         'aliases' => array(
             'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
