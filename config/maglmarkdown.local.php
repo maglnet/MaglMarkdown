@@ -58,6 +58,7 @@ return array(
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter',
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', // default parser
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\GithubMarkdownAdapter',
+            //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\LeagueCommonMark',
         )
     )
 );
