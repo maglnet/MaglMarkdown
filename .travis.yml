@@ -5,8 +5,13 @@ php:
   - 5.4
   - hhvm
   
+env:
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest"
+    - PREFER_LOWEST=""
+
 before_script:
-  - composer install --dev --no-interaction -o
+  - composer update --prefer-source $PREFER_LOWEST
   
 script:
   - phpunit -c tests
