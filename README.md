@@ -1,14 +1,11 @@
 # MaglMarkdown - ZF2 View Helper For Markdown
 
-[![Latest Stable Version](https://poser.pugx.org/maglnet/magl-markdown/v/stable.svg)](https://packagist.org/packages/maglnet/magl-markdown)
-[![Latest Unstable Version](https://poser.pugx.org/maglnet/magl-markdown/v/unstable.svg)](https://packagist.org/packages/maglnet/magl-markdown)
-[![License](https://poser.pugx.org/maglnet/magl-markdown/license.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Build Status](https://img.shields.io/travis/maglnet/MaglMarkdown.svg)](https://travis-ci.org/maglnet/MaglMarkdown)
+[![Latest Stable Version](https://img.shields.io/packagist/v/maglnet/magl-markdown.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![License](https://img.shields.io/packagist/l/maglnet/magl-markdown.svg)](https://packagist.org/packages/maglnet/magl-markdown)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maglnet/MaglMarkdown.svg)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
+[![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maglnet/MaglMarkdown.svg)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0/badge.svg)](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
-
-
-dev-master: [![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.svg?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
 
 MaglMarkdown is developed by Matthias Glaub
 
