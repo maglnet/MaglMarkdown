@@ -29,10 +29,10 @@
         "zendframework/zend-loader": "~2.0",
         "zendframework/zend-view": "~2.0",
         "zendframework/zend-cache": "~2.0",
-        "zendframework/zend-log": "~2.0",
         "league/commonmark": "~0.5"
     },
     "require-dev": {
+        "zendframework/zendframework": "~2.0",
         "phpunit/phpunit": "~4.1"
     },
     "autoload": {
