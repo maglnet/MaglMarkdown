@@ -21,18 +21,20 @@
         "ext-curl": "*",
         "michelf/php-markdown": "~1.4",
         "erusev/parsedown-extra": "~0.2",
+        "league/commonmark": "~0.5",
         "zendframework/zend-stdlib": "~2.0",
         "zendframework/zend-http": "~2.0",
         "zendframework/zend-mvc": "~2.0",
         "zendframework/zend-eventmanager": "~2.0",
         "zendframework/zend-modulemanager": "~2.0",
-        "zendframework/zend-loader": "~2.0",
         "zendframework/zend-view": "~2.0",
         "zendframework/zend-cache": "~2.0",
-        "league/commonmark": "~0.5"
+        "zendframework/zend-serializer": "~2.0",
+        "zendframework/zend-log": "~2.0",
+        "zendframework/zend-i18n": "~2.0",
+        "zendframework/zend-console": "~2.0"
     },
     "require-dev": {
-        "zendframework/zendframework": "~2.0",
         "phpunit/phpunit": "~4.1"
     },
     "autoload": {

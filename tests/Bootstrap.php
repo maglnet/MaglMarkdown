@@ -2,8 +2,7 @@
 
 namespace MaglMarkdownTest;
 
-use RuntimeException;
-use Zend\Loader\AutoloaderFactory;
+use Composer\Autoload\ClassLoader;
 use Zend\Mvc\Application;
 
 error_reporting(E_ALL | E_STRICT);
@@ -20,12 +19,6 @@ class Bootstrap
     public static function init()
     {
         $zf2ModulePaths = array(dirname(dirname(__DIR__)));
-        if (($path = static::findParentPath('vendor'))) {
-            $zf2ModulePaths[] = $path;
-        }
-        if (($path = static::findParentPath('module')) !== $zf2ModulePaths[0] && $path) {
-            $zf2ModulePaths[] = $path;
-        }
 
         static::initAutoloader();
 
@@ -54,38 +47,9 @@ class Bootstrap
 
     protected static function initAutoloader()
     {
-        $vendorPath = static::findParentPath('vendor');
-
-        // Composer autoloading
-        if (file_exists($vendorPath . '/autoload.php')) {
-            include $vendorPath . '/autoload.php';
-        } else {
-            throw new RuntimeException('Unable to find composer autoloader. Run `php composer.phar install`.');
-        }
-
-        AutoloaderFactory::factory(array(
-            'Zend\Loader\StandardAutoloader' => array(
-                'autoregister_zf' => true,
-                'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/' . __NAMESPACE__,
-                ),
-            ),
-        ));
-    }
-
-    protected static function findParentPath($path)
-    {
-        $dir = __DIR__;
-        $previousDir = '.';
-        while (!is_dir($dir . '/' . $path)) {
-            $dir = dirname($dir);
-            if ($previousDir === $dir) {
-                return false;
-            }
-            $previousDir = $dir;
-        }
-
-        return $dir . '/' . $path;
+        /** @var ClassLoader $loader */
+        $loader = require __DIR__ . '/../vendor/autoload.php';
+        $loader->add(__NAMESPACE__, __DIR__ . '/' . __NAMESPACE__);
     }
 
 }
