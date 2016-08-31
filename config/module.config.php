@@ -4,54 +4,77 @@
  * @author Matthias Glaub <magl@magl.net>
  */
 
-return array(
-    'magl_markdown' => array(
+namespace MaglMarkdown;
+
+use Zend\ServiceManager\Factory\InvokableFactory;
+
+return [
+    'magl_markdown' => [
         // use the configured cache interface
         'cache_enabled' => false,
         
         // configuration options for the adapters
-        'adapter_config' => array(
+        'adapter_config' => [
             // config for github markdown adapter
-            'github_markdown' => array(
+            'github_markdown' => [
                 // markdown mode, one of 'markdown' or 'gfm'
                 'markdown_mode' => 'gfm',
 
                 // api endpoint to use
                 'markdown_api_uri' => 'https://api.github.com/markdown',
-            ),
+            ],
             // config for Michel Fortin's markdown adapter
             // all array keys will be passed to the adapter
             // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
-            'michelf_markdown' => array(),
+            'michelf_markdown' => [],
             // config for Michel Fortin's markdown extra adapter
             // all array keys will be passed to the adapter
             // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
-            'michelf_markdown_extra' => array(),
-        ),
+            'michelf_markdown_extra' => [],
+        ],
         
         // cache config to store rendered markdown
-        'cache' => array(
-            'adapter' => array(
+        'cache' => [
+            'adapter' => [
                 'name' => 'filesystem',
-                'options' => array(
+                'options' => [
                     'ttl' => 3600,
                     'cache_dir' => 'data/cache/'
-                ),
-            ),
-            'plugins' => array(
-                'exception_handler' => array('throw_exceptions' => true),
-            ),
-        ),
-    ),
+                ],
+            ],
+            'plugins' => [
+                'exception_handler' => ['throw_exceptions' => true],
+            ],
+        ],
+    ],
     //config for service manager
-    'service_manager' => array(
-        'invokables' => array(
+    'service_manager' => [
+        'invokables' => [
             'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
             'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
             'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
-        ),
-        'aliases' => array(
+        ],
+        'aliases' => [
             'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
-        ),
-    ),
-);
+        ],
+        'factories' => [
+            'MaglMarkdown\Adapter\ErusevParsedownAdapter' => InvokableFactory::class,
+            'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => InvokableFactory::class,
+            'MaglMarkdown\Adapter\LeagueCommonMark' => InvokableFactory::class,
+            // cache listener to handle caching
+            'MaglMarkdown\CacheListener' => Cache\CacheListenerFactory::class,
+            // cache to store rendered markdown
+            'MaglMarkdown\Cache' => Cache\CacheFactory::class,
+            // Markdown Service, to support caching
+            'MaglMarkdown\MarkdownService' => Service\MarkdownFactory::class,
+            // the github markdown adapter
+            'MaglMarkdown\Adapter\GithubMarkdownAdapter' => Adapter\GithubMarkdownAdapterFactory::class,
+            // options for the github adapter
+            'MaglMarkdown\Adapter\GithubMarkdownOptions' => Adapter\GithubMarkdownOptionsFactory::class,
+            // Michel Fortin's Markdown Extra Adapter
+            'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => Adapter\MichelfPHPMarkdownExtraAdapterFactory::class,
+            // Michel Fortin's Markdown Adapter
+            'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter' => Adapter\MichelfPHPMarkdownAdapterFactory::class,
+        ],
+    ],
+];

@@ -40,7 +40,7 @@ class GithubMarkdownAdapterTest extends AbstractMarkdownAdapterTest
 
         $mockClient = $this->getMock('\Zend\Http\Client');
         $mockClient->expects($this->once())
-            ->method('dispatch')
+            ->method('send')
             ->will($this->returnValue($mockResponse));
 
         $mockRequest = $this->getMock('\Zend\Http\Request');

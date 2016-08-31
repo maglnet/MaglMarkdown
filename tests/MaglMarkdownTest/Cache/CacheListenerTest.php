@@ -18,7 +18,8 @@ class CacheListenerTest extends \PHPUnit_Framework_TestCase
             ->withConsecutive(
                 array('markdown.render.pre'),
                 array('markdown.render.post')
-            );
+            )
+            ->willReturn(function () { return true; });
            
         $emMock->expects($this->exactly(2))
             ->method('detach')

@@ -19,7 +19,7 @@ class GithubMarkdownOptions extends AbstractOptions
     /**
      * @var string
      */
-    protected $accessToken = null;
+    protected $accessToken;
 
     /**
      *

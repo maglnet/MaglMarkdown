@@ -2,6 +2,8 @@
 
 namespace MaglMarkdown\Adapter;
 
+use Michelf\Markdown;
+
 /**
  * This is an implementation that uses Michel Fortin's PHP Markdown to transform the Markup to HTML
  *
@@ -13,13 +15,13 @@ class MichelfPHPMarkdownAdapter extends AbstractMichelfPHPMarkdown implements Ma
 
     /**
      *
-     * @var \Michelf\Markdown
+     * @var Markdown
      */
     private $parser;
 
     public function __construct(array $options = null)
     {
-        $this->parser = new \Michelf\Markdown();
+        $this->parser = new Markdown();
         $this->setParserOptions($this->parser, $options);
     }
 

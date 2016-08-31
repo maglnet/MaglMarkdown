@@ -62,7 +62,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
     public function testGetServiceFactories()
     {
-        $config = $this->instance->getServiceConfig();
+        $config = $this->instance->getConfig()['service_manager'];
 
         $this->assertTrue(array_key_exists('factories', $config));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownAdapter', $config['factories']));
@@ -103,7 +103,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
         $smClone = clone Bootstrap::getServiceManager();
         $smClone->setAllowOverride(true);
-        $smClone->setService('Config', array(
+        $smClone->setService('config', array(
             'magl_markdown' => array(
                 'cache_enabled' => true
             )
@@ -120,9 +120,9 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
             ->disableOriginalConstructor()
             ->getMock();
 
-        $emMock->expects($this->once())
-            ->method('attachAggregate')
-            ->with($cacheListenerMock);
+        $cacheListenerMock->expects($this->once())
+            ->method('attach')
+            ->with($emMock);
 
         $applicationMock = $this->getMockBuilder('\Zend\Mvc\Application')
             ->disableOriginalConstructor()

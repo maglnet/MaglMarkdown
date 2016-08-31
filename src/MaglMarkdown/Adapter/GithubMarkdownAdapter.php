@@ -57,10 +57,8 @@ class GithubMarkdownAdapter implements MarkdownAdapterInterface
                 ->addHeaderLine('Authorization', 'token '.$this->options->getAccessToken());
         }
 
-        $response = $this->httpClient->dispatch($this->request);
+        $response = $this->httpClient->send($this->request);
 
-        $renderedMarkdown = $response->getBody();
-
-        return $renderedMarkdown;
+        return $response->getBody();
     }
 }

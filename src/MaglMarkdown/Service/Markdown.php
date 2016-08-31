@@ -22,8 +22,14 @@ class Markdown
      *
      * @var EventManagerInterface
      */
-    private $eventManager = null;
+    private $eventManager;
 
+    /**
+     * Markdown constructor.
+     *
+     * @param MarkdownAdapterInterface   $markdownAdapter
+     * @param EventManagerInterface|null $eventManager
+     */
     public function __construct(MarkdownAdapterInterface $markdownAdapter, EventManagerInterface $eventManager = null)
     {
         $this->markdownAdapter = $markdownAdapter;

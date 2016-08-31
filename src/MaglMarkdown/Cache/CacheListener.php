@@ -10,11 +10,17 @@ use Zend\Cache\Storage\StorageInterface;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
+use Zend\EventManager\ListenerAggregateTrait;
 
+/**
+ * Class CacheListener
+ *
+ * @package MaglMarkdown\Cache
+ */
 class CacheListener implements ListenerAggregateInterface
 {
 
-    private $listeners = array();
+    use ListenerAggregateTrait;
 
     /**
      *
@@ -27,19 +33,14 @@ class CacheListener implements ListenerAggregateInterface
         $this->cache = $cache;
     }
 
-    public function attach(EventManagerInterface $events)
+    /**
+     * @param EventManagerInterface $events
+     * @param int                   $priority
+     */
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $this->listeners[] = $events->attach('markdown.render.pre', array($this, 'preRender'));
-        $this->listeners[] = $events->attach('markdown.render.post', array($this, 'postRender'));
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+        $this->listeners[] = $events->attach('markdown.render.pre', [$this, 'preRender'], $priority);
+        $this->listeners[] = $events->attach('markdown.render.post', [$this, 'postRender'], $priority);
     }
 
     /**
@@ -47,6 +48,7 @@ class CacheListener implements ListenerAggregateInterface
      *
      * @param  \Zend\EventManager\Event $event
      * @return mixed the rendered markdown, if found, false otherwise
+     * @throws \Zend\Cache\Exception\ExceptionInterface
      */
     public function preRender(Event $event)
     {
@@ -69,6 +71,8 @@ class CacheListener implements ListenerAggregateInterface
      * Saves the rendered markdown within the cache.
      *
      * @param \Zend\EventManager\Event $event
+     * @return mixed
+     * @throws \Zend\Cache\Exception\ExceptionInterface
      */
     public function postRender(Event $event)
     {
