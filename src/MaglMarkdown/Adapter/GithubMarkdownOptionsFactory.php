@@ -35,6 +35,7 @@ class GithubMarkdownOptionsFactory implements FactoryInterface
      * @param  string             $requestedName
      * @param  null|array         $options
      * @return Options\GithubMarkdownOptions
+     * @throws \Interop\Container\Exception\NotFoundException
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
      *     creating a service.

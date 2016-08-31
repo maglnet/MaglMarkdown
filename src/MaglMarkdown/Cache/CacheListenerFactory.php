@@ -21,7 +21,7 @@ class CacheListenerFactory implements FactoryInterface
      * Create service
      *
      * @param ServiceLocatorInterface $serviceLocator
-     * @return mixed
+     * @return CacheListener
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
@@ -34,7 +34,8 @@ class CacheListenerFactory implements FactoryInterface
      * @param  ContainerInterface $container
      * @param  string             $requestedName
      * @param  null|array         $options
-     * @return object
+     * @return CacheListener
+     * @throws \Interop\Container\Exception\NotFoundException
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
      *     creating a service.

@@ -4,12 +4,12 @@ namespace MaglMarkdown\Adapter;
 
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
+use Zend\Http\Client as HttpClient;
 use Zend\Http\Request;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\FactoryInterface;
 use Zend\ServiceManager\ServiceLocatorInterface;
-use Zend\Http\Client as HttpClient;
 
 /**
  * Class GithubMarkdownAdapterFactory

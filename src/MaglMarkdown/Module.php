@@ -31,11 +31,17 @@ class Module implements
         }
     }
 
+    /**
+     * @return array
+     */
     public function getConfig()
     {
         return include __DIR__ . '/../../config/module.config.php';
     }
 
+    /**
+     * @return array
+     */
     public function getAutoloaderConfig()
     {
         return [
@@ -47,6 +53,9 @@ class Module implements
         ];
     }
 
+    /**
+     * @return array
+     */
     public function getViewHelperConfig()
     {
         return [

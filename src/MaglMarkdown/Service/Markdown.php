@@ -39,7 +39,7 @@ class Markdown
     public function render($markdown)
     {
         // first check if there's something within the cache
-        $cachedMarkdown = $this->triggerEvent('markdown.render.pre', array('markdown' => $markdown));
+        $cachedMarkdown = $this->triggerEvent('markdown.render.pre', ['markdown' => $markdown]);
         if (false !== $cachedMarkdown) {
             return $cachedMarkdown;
         }
@@ -49,10 +49,10 @@ class Markdown
         $renderedMarkdown = $this->markdownAdapter->transformText($markdown);
 
         // save the rendered markdown to the cache
-        $this->triggerEvent('markdown.render.post', array(
+        $this->triggerEvent('markdown.render.post', [
             'markdown' => $markdown,
-            'renderedMarkdown' => $renderedMarkdown
-        ));
+            'renderedMarkdown' => $renderedMarkdown,
+        ]);
 
         return $renderedMarkdown;
     }

@@ -9,7 +9,7 @@ namespace MaglMarkdown\Adapter;
 abstract class AbstractMichelfPHPMarkdown
 {
     /**
-     * @param mixed $parser
+     * @param mixed      $parser
      * @param array|null $options
      */
     protected function setParserOptions($parser, $options = null)
