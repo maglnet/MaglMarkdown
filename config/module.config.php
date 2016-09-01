@@ -49,11 +49,6 @@ return [
     ],
     //config for service manager
     'service_manager' => [
-        'invokables' => [
-            'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
-            'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
-            'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
-        ],
         'aliases' => [
             'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
         ],
