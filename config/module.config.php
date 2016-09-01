@@ -50,12 +50,13 @@ return [
     //config for service manager
     'service_manager' => [
         'aliases' => [
-            'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
+            'MaglMarkdown\MarkdownAdapter' => Adapter\MichelfPHPMarkdownExtraAdapter::class,
+            'MaglMarkdown\Adapter\LeagueCommonMark' => Adapter\LeagueCommonMarkAdapter::class,
         ],
         'factories' => [
-            'MaglMarkdown\Adapter\ErusevParsedownAdapter' => InvokableFactory::class,
-            'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => InvokableFactory::class,
-            'MaglMarkdown\Adapter\LeagueCommonMark' => InvokableFactory::class,
+            Adapter\ErusevParsedownAdapter::class => InvokableFactory::class,
+            Adapter\ErusevParsedownExtraAdapter::class => InvokableFactory::class,
+            Adapter\LeagueCommonMarkAdapter::class => InvokableFactory::class,
             // cache listener to handle caching
             'MaglMarkdown\CacheListener' => Cache\CacheListenerFactory::class,
             // cache to store rendered markdown
