@@ -44,13 +44,13 @@ class Module implements
      */
     public function getAutoloaderConfig()
     {
-        return [
-            'Zend\Loader\StandardAutoloader' => [
-                'namespaces' => [
+        return array(
+            'Zend\Loader\StandardAutoloader' => array(
+                'namespaces' => array(
                     __NAMESPACE__ => __DIR__,
-                ],
-            ],
-        ];
+                ),
+            ),
+        );
     }
 
     /**
@@ -58,13 +58,13 @@ class Module implements
      */
     public function getViewHelperConfig()
     {
-        return [
-            'aliases' => [
-                'markdown' => View\Helper\Markdown::class,
-            ],
-            'factories' => [
-                View\Helper\Markdown::class => View\Helper\MarkdownFactory::class,
-            ],
-        ];
+        return array(
+            'aliases' => array(
+                'markdown' => 'MaglMarkdown\View\Helper\Markdown',
+            ),
+            'factories' => array(
+                'MaglMarkdown\View\Helper\Markdown' => 'MaglMarkdown\View\Helper\MarkdownFactory',
+            ),
+        );
     }
 }

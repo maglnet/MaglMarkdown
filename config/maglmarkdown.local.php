@@ -1,7 +1,7 @@
 <?php
 
-return [
-    'magl_markdown' => [
+return array(
+    'magl_markdown' => array(
         // use the configured cache interface to cache the rendered markdown
         //'cache_enabled' => true,
         
@@ -23,8 +23,8 @@ return [
         ),
         */
         // configuration options for the adapters
-        'adapter_config' => [
-            'github_markdown' => [
+        'adapter_config' => array(
+            'github_markdown' => array(
                 // the access token to authenticate to the github api
                 // you can get one for you account at the settings -> applications page
                 // https://github.com/settings/applications
@@ -32,33 +32,33 @@ return [
                 
                 // markdown mode, one of 'markdown' or 'gfm' (default: 'gfm')
                 //'markdown_mode' => 'gfm',
-            ],
+            ),
             // config for Michel Fortin's markdown adapter
             // all array keys will be passed to the adapter
             // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
-            'michelf_markdown' => [
+            'michelf_markdown' => array(
                 //'empty_element_suffix' => ' />',
-            ],
+            ),
             // config for Michel Fortin's markdown extra adapter
             // all array keys will be passed to the adapter
             // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
-            'michelf_markdown_extra' => [
+            'michelf_markdown_extra' => array(
                 //'empty_element_suffix' => ' />',
-            ],
-        ],
-    ],
+            ),
+        ),
+    ),
     // here you can switch the used markdown adapter
     // enable ONE of the parsers to override the default
     // if you need more informations about a parser check the README.md, you'll
     // find links to detailed descriptions about the parsers
-    'service_manager' => [
-        'aliases' => [
+    'service_manager' => array(
+        'aliases' => array(
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter',
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', // default parser
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\GithubMarkdownAdapter',
             //'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\LeagueCommonMark',
-        ]
-    ]
-];
+        )
+    )
+);
