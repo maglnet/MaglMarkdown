@@ -6,8 +6,6 @@
 
 namespace MaglMarkdown;
 
-use Zend\ServiceManager\Factory\InvokableFactory;
-
 return [
     'magl_markdown' => [
         // use the configured cache interface
@@ -53,10 +51,12 @@ return [
             'MaglMarkdown\MarkdownAdapter' => Adapter\MichelfPHPMarkdownExtraAdapter::class,
             'MaglMarkdown\Adapter\LeagueCommonMark' => Adapter\LeagueCommonMarkAdapter::class,
         ],
+        'invokables' => [
+            Adapter\ErusevParsedownAdapter::class => Adapter\ErusevParsedownAdapter::class,
+            Adapter\ErusevParsedownExtraAdapter::class => Adapter\ErusevParsedownExtraAdapter::class,
+            Adapter\LeagueCommonMarkAdapter::class => Adapter\LeagueCommonMarkAdapter::class,
+        ],
         'factories' => [
-            Adapter\ErusevParsedownAdapter::class => InvokableFactory::class,
-            Adapter\ErusevParsedownExtraAdapter::class => InvokableFactory::class,
-            Adapter\LeagueCommonMarkAdapter::class => InvokableFactory::class,
             // cache listener to handle caching
             'MaglMarkdown\CacheListener' => Cache\CacheListenerFactory::class,
             // cache to store rendered markdown

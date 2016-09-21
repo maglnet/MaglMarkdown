@@ -25,7 +25,7 @@ class GithubMarkdownOptionsFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($serviceLocator, Options\GithubMarkdownOptions::class);
+        return $this->create($serviceLocator);
     }
 
     /**
@@ -43,6 +43,19 @@ class GithubMarkdownOptionsFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        return $this->create($container);
+    }
+
+    /**
+     * @param ServiceLocatorInterface|ContainerInterface $container
+     * @return Options\GithubMarkdownOptions
+     */
+    protected function create($container)
+    {
+        if (!$container instanceof ServiceLocatorInterface && !$container instanceof ContainerInterface) {
+            throw new \InvalidArgumentException('Invalid container to create service');
+        }
+
         $config = $container->get('config');
 
         return new Options\GithubMarkdownOptions($config['magl_markdown']['adapter_config']['github_markdown']);

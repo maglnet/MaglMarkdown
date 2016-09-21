@@ -30,7 +30,7 @@ class MarkdownFactory implements FactoryInterface
             $serviceLocator = $serviceLocator->getServiceLocator() ?: $serviceLocator;
         }
 
-        return $this($serviceLocator, Markdown::class);
+        return $this->create($serviceLocator);
     }
 
     /**
@@ -48,6 +48,19 @@ class MarkdownFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        return $this->create($container);
+    }
+
+    /**
+     * @param ServiceLocatorInterface|ContainerInterface $container
+     * @return Markdown
+     */
+    protected function create($container)
+    {
+        if (!$container instanceof ServiceLocatorInterface && !$container instanceof ContainerInterface) {
+            throw new \InvalidArgumentException('Invalid container to create service');
+        }
+
         return new Markdown($container->get('MaglMarkdown\MarkdownService'));
     }
 }

@@ -59,8 +59,11 @@ class Module implements
     public function getViewHelperConfig()
     {
         return [
+            'aliases' => [
+                'markdown' => View\Helper\Markdown::class,
+            ],
             'factories' => [
-                'markdown' => View\Helper\MarkdownFactory::class,
+                View\Helper\Markdown::class => View\Helper\MarkdownFactory::class,
             ],
         ];
     }

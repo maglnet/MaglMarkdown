@@ -25,7 +25,7 @@ class CacheListenerFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($serviceLocator, CacheListener::class);
+        return $this->create($serviceLocator);
     }
 
     /**
@@ -43,6 +43,19 @@ class CacheListenerFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        return $this->create($container);
+    }
+
+    /**
+     * @param ServiceLocatorInterface|ContainerInterface $container
+     * @return CacheListener
+     */
+    protected function create($container)
+    {
+        if (!$container instanceof ServiceLocatorInterface && !$container instanceof ContainerInterface) {
+            throw new \InvalidArgumentException('Invalid container to create service');
+        }
+
         return new CacheListener($container->get('MaglMarkdown\Cache'));
     }
 }

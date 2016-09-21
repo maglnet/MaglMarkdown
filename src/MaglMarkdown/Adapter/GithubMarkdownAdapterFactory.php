@@ -27,7 +27,7 @@ class GithubMarkdownAdapterFactory implements FactoryInterface
      */
     public function createService(ServiceLocatorInterface $serviceLocator)
     {
-        return $this($serviceLocator, GithubMarkdownAdapter::class);
+        return $this->create($serviceLocator);
     }
 
     /**
@@ -46,6 +46,19 @@ class GithubMarkdownAdapterFactory implements FactoryInterface
      */
     public function __invoke(ContainerInterface $container, $requestedName, array $options = null)
     {
+        return $this->create($container);
+    }
+
+    /**
+     * @param ServiceLocatorInterface|ContainerInterface $container
+     * @return GithubMarkdownAdapter
+     */
+    protected function create($container)
+    {
+        if (!$container instanceof ServiceLocatorInterface && !$container instanceof ContainerInterface) {
+            throw new \InvalidArgumentException('Invalid container to create service');
+        }
+
         $request = new Request();
 
         $client = new HttpClient();
