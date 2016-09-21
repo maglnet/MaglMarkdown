@@ -41,7 +41,7 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $config = $this->instance->getViewHelperConfig();
 
         $this->assertTrue(array_key_exists('markdown', $config['aliases']));
-        $this->assertTrue(array_key_exists(\MaglMarkdown\View\Helper\Markdown::class, $config['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\View\Helper\Markdown', $config['factories']));
     }
 
     public function testGetAutoloaderConfig()

@@ -32,7 +32,7 @@ class Bootstrap
             )
         );
 
-        if (class_exists(\Zend\Router\Module::class)) {
+        if (class_exists('Zend\Router\Module')) {
             $config['modules'][] = 'Zend\Router';
         }
 
