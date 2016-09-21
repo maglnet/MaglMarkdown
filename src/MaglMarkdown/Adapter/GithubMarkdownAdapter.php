@@ -44,10 +44,10 @@ class GithubMarkdownAdapter implements MarkdownAdapterInterface
 
     public function transformText($text)
     {
-        $requestArray = [
+        $requestArray = array(
             'text' => $text,
             'mode' => $this->options->getMarkdownMode(),
-        ];
+        );
 
         $this->request->setUri($this->options->getMarkdownApiUri());
         $this->request->setMethod(Request::METHOD_POST);

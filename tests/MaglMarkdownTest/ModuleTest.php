@@ -63,7 +63,8 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
 
     public function testGetServiceFactories()
     {
-        $config = $this->instance->getConfig()['service_manager'];
+        $config = $this->instance->getConfig();
+        $config = $config['service_manager'];
 
         $this->assertTrue(array_key_exists('factories', $config));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownAdapter', $config['factories']));
