@@ -10,7 +10,6 @@ use Zend\Cache\Storage\StorageInterface;
 use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
-use Zend\EventManager\ListenerAggregateTrait;
 
 /**
  * Class CacheListener
@@ -19,14 +18,27 @@ use Zend\EventManager\ListenerAggregateTrait;
  */
 class CacheListener implements ListenerAggregateInterface
 {
-
-    use ListenerAggregateTrait;
-
     /**
      *
      * @var StorageInterface
      */
     private $cache;
+
+    /**
+     * @var callable[]
+     */
+    protected $listeners = array();
+
+    /**
+     * {@inheritDoc}
+     */
+    public function detach(EventManagerInterface $events)
+    {
+        foreach ($this->listeners as $index => $callback) {
+            $events->detach($callback);
+            unset($this->listeners[$index]);
+        }
+    }
 
     public function __construct(StorageInterface $cache)
     {
