@@ -4,6 +4,8 @@
  * @author Matthias Glaub <magl@magl.net>
  */
 
+namespace MaglMarkdown;
+
 return array(
     'magl_markdown' => array(
         // use the configured cache interface
@@ -45,13 +47,30 @@ return array(
     ),
     //config for service manager
     'service_manager' => array(
+        'aliases' => array(
+            'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter',
+            'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
+        ),
         'invokables' => array(
             'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
             'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
-            'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
+            'MaglMarkdown\Adapter\LeagueCommonMarkAdapter' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
         ),
-        'aliases' => array(
-            'MaglMarkdown\MarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter'
+        'factories' => array(
+            // cache listener to handle caching
+            'MaglMarkdown\CacheListener' => 'MaglMarkdown\Cache\CacheListenerFactory',
+            // cache to store rendered markdown
+            'MaglMarkdown\Cache' => 'MaglMarkdown\Cache\CacheFactory',
+            // Markdown Service, to support caching
+            'MaglMarkdown\MarkdownService' => 'MaglMarkdown\Service\MarkdownFactory',
+            // the github markdown adapter
+            'MaglMarkdown\Adapter\GithubMarkdownAdapter' => 'MaglMarkdown\Adapter\GithubMarkdownAdapterFactory',
+            // options for the github adapter
+            'MaglMarkdown\Adapter\GithubMarkdownOptions' => 'MaglMarkdown\Adapter\GithubMarkdownOptionsFactory',
+            // Michel Fortin's Markdown Extra Adapter
+            'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapterFactory',
+            // Michel Fortin's Markdown Adapter
+            'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapterFactory',
         ),
     ),
 );

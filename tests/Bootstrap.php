@@ -32,6 +32,10 @@ class Bootstrap
             )
         );
 
+        if (class_exists('Zend\Router\Module')) {
+            $config['modules'][] = 'Zend\Router';
+        }
+
         $app = Application::init($config);
         static::$serviceManager = $app->getServiceManager();
     }

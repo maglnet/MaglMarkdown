@@ -11,35 +11,48 @@ use Zend\EventManager\Event;
 use Zend\EventManager\EventManagerInterface;
 use Zend\EventManager\ListenerAggregateInterface;
 
+/**
+ * Class CacheListener
+ *
+ * @package MaglMarkdown\Cache
+ */
 class CacheListener implements ListenerAggregateInterface
 {
-
-    private $listeners = array();
-
     /**
      *
      * @var StorageInterface
      */
     private $cache;
 
+    /**
+     * @var callable[]
+     */
+    protected $listeners = array();
+
+    /**
+     * {@inheritDoc}
+     */
+    public function detach(EventManagerInterface $events)
+    {
+        foreach ($this->listeners as $index => $callback) {
+            $events->detach($callback);
+            unset($this->listeners[$index]);
+        }
+    }
+
     public function __construct(StorageInterface $cache)
     {
         $this->cache = $cache;
     }
 
-    public function attach(EventManagerInterface $events)
+    /**
+     * @param EventManagerInterface $events
+     * @param int                   $priority
+     */
+    public function attach(EventManagerInterface $events, $priority = 1)
     {
-        $this->listeners[] = $events->attach('markdown.render.pre', array($this, 'preRender'));
-        $this->listeners[] = $events->attach('markdown.render.post', array($this, 'postRender'));
-    }
-
-    public function detach(EventManagerInterface $events)
-    {
-        foreach ($this->listeners as $index => $listener) {
-            if ($events->detach($listener)) {
-                unset($this->listeners[$index]);
-            }
-        }
+        $this->listeners[] = $events->attach('markdown.render.pre', array($this, 'preRender'), $priority);
+        $this->listeners[] = $events->attach('markdown.render.post', array($this, 'postRender'), $priority);
     }
 
     /**
@@ -47,6 +60,7 @@ class CacheListener implements ListenerAggregateInterface
      *
      * @param  \Zend\EventManager\Event $event
      * @return mixed the rendered markdown, if found, false otherwise
+     * @throws \Zend\Cache\Exception\ExceptionInterface
      */
     public function preRender(Event $event)
     {
@@ -69,6 +83,8 @@ class CacheListener implements ListenerAggregateInterface
      * Saves the rendered markdown within the cache.
      *
      * @param \Zend\EventManager\Event $event
+     * @return mixed
+     * @throws \Zend\Cache\Exception\ExceptionInterface
      */
     public function postRender(Event $event)
     {

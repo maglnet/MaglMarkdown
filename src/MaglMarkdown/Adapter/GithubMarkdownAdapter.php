@@ -10,8 +10,8 @@ use Zend\Http\Request;
  * This is an implementation that uses github's markdown API to render Markdown
  *
  *
- * @see https://developer.github.com/v3/
- * @see https://developer.github.com/v3/markdown/
+ * @see    https://developer.github.com/v3/
+ * @see    https://developer.github.com/v3/markdown/
  * @author Matthias Glaub <magl@magl.net>
  */
 class GithubMarkdownAdapter implements MarkdownAdapterInterface
@@ -46,7 +46,7 @@ class GithubMarkdownAdapter implements MarkdownAdapterInterface
     {
         $requestArray = array(
             'text' => $text,
-            'mode' => $this->options->getMarkdownMode()
+            'mode' => $this->options->getMarkdownMode(),
         );
 
         $this->request->setUri($this->options->getMarkdownApiUri());
@@ -54,13 +54,11 @@ class GithubMarkdownAdapter implements MarkdownAdapterInterface
         $this->request->setContent(json_encode($requestArray));
         if ($this->options->getAccessToken()) {
             $this->request->getHeaders()
-                ->addHeaderLine('Authorization', 'token '.$this->options->getAccessToken());
+                ->addHeaderLine('Authorization', 'token ' . $this->options->getAccessToken());
         }
 
-        $response = $this->httpClient->dispatch($this->request);
+        $response = $this->httpClient->send($this->request);
 
-        $renderedMarkdown = $response->getBody();
-
-        return $renderedMarkdown;
+        return $response->getBody();
     }
 }

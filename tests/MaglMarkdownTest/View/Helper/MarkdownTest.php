@@ -32,6 +32,7 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         /* @var $view HelperPluginManager */
         $view = $serviceManager->get('ViewHelperManager');
 
+        /** @var \MaglMarkdown\View\Helper\Markdown $markdown */
         $markdown = $view->get('markdown');
         $text = $markdown('some sample string');
 

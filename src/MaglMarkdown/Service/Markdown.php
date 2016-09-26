@@ -22,8 +22,14 @@ class Markdown
      *
      * @var EventManagerInterface
      */
-    private $eventManager = null;
+    private $eventManager;
 
+    /**
+     * Markdown constructor.
+     *
+     * @param MarkdownAdapterInterface   $markdownAdapter
+     * @param EventManagerInterface|null $eventManager
+     */
     public function __construct(MarkdownAdapterInterface $markdownAdapter, EventManagerInterface $eventManager = null)
     {
         $this->markdownAdapter = $markdownAdapter;
@@ -45,7 +51,7 @@ class Markdown
         // save the rendered markdown to the cache
         $this->triggerEvent('markdown.render.post', array(
             'markdown' => $markdown,
-            'renderedMarkdown' => $renderedMarkdown
+            'renderedMarkdown' => $renderedMarkdown,
         ));
 
         return $renderedMarkdown;
