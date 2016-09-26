@@ -7,8 +7,6 @@
 [![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/maglnet/MaglMarkdown.svg)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
 [![Dependency Status](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0/badge.svg)](https://www.versioneye.com/user/projects/53106961ec13758b7e0000c0)
 
-MaglMarkdown is developed by Matthias Glaub
-
 ## Introduction
 
 MaglMarkdown is a ZF2 module that adds a View Helper to transform [Markdown](http://daringfireball.net/projects/markdown/).
@@ -127,6 +125,10 @@ The markdown service triggers two events you can listen to:
 These events are currently used for the integrated caching feature only,
 but do whatever you like with these events.
 
+## Contributors
+
+MaglMarkdown is developed by Matthias Glaub and [contributors](https://github.com/maglnet/MaglMarkdown/graphs/contributors).
+
 ## License
 
 MaglMarkdown is licensed under the MIT license.  
@@ -142,9 +144,9 @@ Copyright (c) 2013 Emanuil Rusev
 http://erusev.com/  
 All rights reserved.  
 
-Based on The PHP League's Common Mark implementation
-Copyright (c) 2014, Colin O'Dell
-https://github.com/thephpleague/commonmark
+Based on The PHP League's Common Mark implementation  
+Copyright (c) 2014, Colin O'Dell  
+https://github.com/thephpleague/commonmark  
 All rights reserved.  
 
 Based on Markdown  
