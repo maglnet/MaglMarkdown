@@ -70,8 +70,8 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\GithubMarkdownOptions', $config['factories']));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter', $config['factories']));
         $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter', $config['factories']));
-        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['service_manager']['factories']));
-        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownExtraAdapter', $config['service_manager']['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownExtraAdapter', $config['factories']));
     }
 
     public function testGetDefaultAdapter()
