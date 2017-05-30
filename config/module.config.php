@@ -10,7 +10,7 @@ return array(
     'magl_markdown' => array(
         // use the configured cache interface
         'cache_enabled' => false,
-        
+
         // configuration options for the adapters
         'adapter_config' => array(
             // config for github markdown adapter
@@ -29,8 +29,16 @@ return array(
             // all array keys will be passed to the adapter
             // a list of configuration options can be found here: http://michelf.ca/projects/php-markdown/configuration/
             'michelf_markdown_extra' => array(),
+            // config for erusev parsedown adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
+            'erusev_parsedown' => array(),
+            // config for erusev parsedown extra adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
+            'erusev_parsedown_extra' => array(),
         ),
-        
+
         // cache config to store rendered markdown
         'cache' => array(
             'adapter' => array(
@@ -52,8 +60,6 @@ return array(
             'MaglMarkdown\Adapter\LeagueCommonMark' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
         ),
         'invokables' => array(
-            'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapter',
-            'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter',
             'MaglMarkdown\Adapter\LeagueCommonMarkAdapter' => 'MaglMarkdown\Adapter\LeagueCommonMarkAdapter',
         ),
         'factories' => array(
@@ -71,6 +77,10 @@ return array(
             'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapterFactory',
             // Michel Fortin's Markdown Adapter
             'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapter' => 'MaglMarkdown\Adapter\MichelfPHPMarkdownAdapterFactory',
+            // Emanuil Rusev's Parsedown Adapter
+            'MaglMarkdown\Adapter\ErusevParsedownAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownAdapterFactory',
+            // Emanuil Rusev's Parsedown Extra Adapter
+            'MaglMarkdown\Adapter\ErusevParsedownExtraAdapter' => 'MaglMarkdown\Adapter\ErusevParsedownExtraAdapterFactory',
         ),
     ),
 );

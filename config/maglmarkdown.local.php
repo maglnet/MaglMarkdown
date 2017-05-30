@@ -45,6 +45,20 @@ return array(
             'michelf_markdown_extra' => array(
                 //'empty_element_suffix' => ' />',
             ),
+            // config for erusev parsedown adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
+            'erusev_parsedown' => array(
+                //'breaks_enabled' => true,
+                //'markup_escaped' => true,
+            ),
+            // config for erusev parsedown extra adapter
+            // all array keys will be passed to the adapter
+            // a list of configuration options can be found here: https://github.com/erusev/parsedown/wiki/Tutorial:-Get-Started
+            'erusev_parsedown_extra' => array(
+                //'breaks_enabled' => true,
+                //'markup_escaped' => true,
+            ),
         ),
     ),
     // here you can switch the used markdown adapter
