@@ -56,7 +56,11 @@ class ModuleTest extends \PHPUnit_Framework_TestCase
         $config = $this->instance->getConfig();
 
         $this->assertTrue(array_key_exists('service_manager', $config));
-        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['service_manager']['invokables']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownAdapter', $config['service_manager']['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\ErusevParsedownExtraAdapter', $config['service_manager']['factories']));
+
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfMarkdownAdapter', $config['service_manager']['factories']));
+        $this->assertTrue(array_key_exists('MaglMarkdown\Adapter\MichelfMarkdownExtraAdapter', $config['service_manager']['factories']));
 
         $this->assertTrue(array_key_exists('MaglMarkdown\MarkdownAdapter', $config['service_manager']['aliases']));
     }
