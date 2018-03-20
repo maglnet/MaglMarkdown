@@ -1,26 +1,32 @@
 language: php
-sudo: required
-dist: trusty
-group: edge
-php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
-  
-env:
-  matrix:
-    - PREFER_LOWEST="--prefer-lowest"
-    - PREFER_LOWEST=""
+
+matrix:
+    fast_finish: true
+    include:
+        - php: 7.0
+          env:
+            - PREFER_LOWEST="--prefer-stable --prefer-lowest"
+            - COVERAGE=1
+        - php: 7.1
+        - php: 7.2
+          env:
+            - DEP_CHECK=1
+        - php: nightly
+        - php: hhvm
+    allow_failures:
+        - php: nightly
+
 
 before_script:
   - composer self-update
   - composer update --prefer-source $PREFER_LOWEST
-  
+  - if [ $DEP_CHECK = "1" ]; then wget https://github.com/maglnet/ComposerRequireChecker/releases/download/0.2.1/composer-require-checker.phar; fi
+
+
 script:
   - phpunit -c tests
-  
+  - if [ $DEP_CHECK = "1" ]; then php composer-require-checker.phar; fi
+
 after_script:
-  - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover tests/log/coverage.xml
+  - if [ $COVERAGE = "1" ]; then wget https://scrutinizer-ci.com/ocular.phar; fi
+  - if [ $COVERAGE = "1" ]; then php ocular.phar code-coverage:upload --format=php-clover tests/log/coverage.xml; fi
