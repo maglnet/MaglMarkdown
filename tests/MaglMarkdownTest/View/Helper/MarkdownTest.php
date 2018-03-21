@@ -10,7 +10,7 @@ use Zend\View\HelperPluginManager;
  *
  * @author matthias
  */
-class MarkdownTest extends \PHPUnit_Framework_TestCase
+class MarkdownTest extends \PHPUnit\Framework\TestCase
 {
 
     public function testGetViewHelper()

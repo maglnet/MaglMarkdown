@@ -7,7 +7,7 @@
 
 namespace MaglMarkdownTest\Service;
 
-class MarkdownTest extends \PHPUnit_Framework_TestCase
+class MarkdownTest extends \PHPUnit\Framework\TestCase
 {
     public function testServiceTriggersEvents(){
         
@@ -15,7 +15,7 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         
         $responseCollection = new \Zend\EventManager\ResponseCollection();
         
-        $emMock = $this->getMock('\Zend\EventManager\EventManager');
+        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->exactly(2))
             ->method('trigger')
@@ -45,7 +45,7 @@ class MarkdownTest extends \PHPUnit_Framework_TestCase
         $responseCollection->setStopped(true);
         $responseCollection->push($renderedMarkdown);
         
-        $emMock = $this->getMock('\Zend\EventManager\EventManager');
+        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->once())
             ->method('trigger')

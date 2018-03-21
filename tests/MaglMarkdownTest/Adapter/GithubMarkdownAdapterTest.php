@@ -28,22 +28,22 @@ class GithubMarkdownAdapterTest extends AbstractMarkdownAdapterTest
         $textOutput = 'myOutputText';
         $accessToken = "myAccessToken";
 
-        $mockHeaders = $this->getMock('\Zend\Http\Headers');
+        $mockHeaders = $this->getMockBuilder('\Zend\Http\Headers')->getMock();
         $mockHeaders->expects($this->once())
             ->method('addHeaderLine')
             ->with('Authorization', 'token '.$accessToken);
 
-        $mockResponse = $this->getMock('\Zend\Http\Response');
+        $mockResponse = $this->getMockBuilder('\Zend\Http\Response')->getMock();
         $mockResponse->expects($this->once())
             ->method('getBody')
             ->will($this->returnValue($textOutput));
 
-        $mockClient = $this->getMock('\Zend\Http\Client');
+        $mockClient = $this->getMockBuilder('\Zend\Http\Client')->getMock();
         $mockClient->expects($this->once())
             ->method('send')
             ->will($this->returnValue($mockResponse));
 
-        $mockRequest = $this->getMock('\Zend\Http\Request');
+        $mockRequest = $this->getMockBuilder('\Zend\Http\Request')->getMock();
         $mockRequest->expects($this->once())
             ->method('getHeaders')
             ->will($this->returnValue($mockHeaders));
