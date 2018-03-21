@@ -1,6 +1,6 @@
 # MaglMarkdown - ZF2 View Helper For Markdown
 
-[![Build Status](https://img.shields.io/travis/maglnet/MaglMarkdown.svg)](https://travis-ci.org/maglnet/MaglMarkdown)
+[![Build Status](https://travis-ci.org/maglnet/MaglMarkdown.svg?branch=master)](https://travis-ci.org/maglnet/MaglMarkdown)
 [![Latest Stable Version](https://img.shields.io/packagist/v/maglnet/magl-markdown.svg)](https://packagist.org/packages/maglnet/magl-markdown)
 [![License](https://img.shields.io/packagist/l/maglnet/magl-markdown.svg)](https://packagist.org/packages/maglnet/magl-markdown)
 [![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/maglnet/MaglMarkdown.svg)](https://scrutinizer-ci.com/g/maglnet/MaglMarkdown/?branch=master)
