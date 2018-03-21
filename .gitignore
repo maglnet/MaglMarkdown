@@ -3,3 +3,4 @@
 /tests/log/
 /nbproject/
 /tests/data/cache/*
+composer.lock
