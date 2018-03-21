@@ -7,11 +7,11 @@
 
 namespace MaglMarkdownTest\Cache;
 
-class CacheListenerTest extends \PHPUnit_Framework_TestCase
+class CacheListenerTest extends \PHPUnit\Framework\TestCase
 {
     public function testAttachDetachListeners(){
         
-        $emMock = $this->getMock('\Zend\EventManager\EventManager');
+        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->exactly(2))
             ->method('attach')

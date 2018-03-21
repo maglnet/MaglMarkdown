@@ -7,7 +7,7 @@ namespace MaglMarkdownTest\Adapter;
  *
  * @author matthias
  */
-abstract class AbstractMarkdownAdapterTest extends \PHPUnit_Framework_TestCase
+abstract class AbstractMarkdownAdapterTest extends \PHPUnit\Framework\TestCase
 {
 
     /**

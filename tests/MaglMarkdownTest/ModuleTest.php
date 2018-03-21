@@ -10,7 +10,7 @@ use Zend\View\HelperPluginManager;
  *
  * @author matthias
  */
-class ModuleTest extends \PHPUnit_Framework_TestCase
+class ModuleTest extends \PHPUnit\Framework\TestCase
 {
 
     /**
