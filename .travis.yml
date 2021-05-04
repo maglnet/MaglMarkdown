@@ -19,6 +19,7 @@ before_script:
 
 
 script:
+  - export XDEBUG_MODE=coverage
   - vendor/bin/phpunit -c tests
   - if [ $DEP_CHECK = "1" ]; then php composer-require-checker.phar; fi
 
