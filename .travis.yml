@@ -19,7 +19,7 @@ before_script:
 
 
 script:
-  - phpunit -c tests
+  - vendor/bin/phpunit -c tests
   - if [ $DEP_CHECK = "1" ]; then php composer-require-checker.phar; fi
 
 after_script:
