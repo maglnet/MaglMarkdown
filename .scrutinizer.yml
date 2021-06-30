@@ -1,8 +1,0 @@
-imports:
-    - php
-    
-tools:
-    external_code_coverage: true
-    php_code_sniffer:
-        config:
-            ruleset: PSR2
