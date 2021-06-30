@@ -10,9 +10,6 @@ jobs:
 
     strategy:
       matrix:
-        dependencies:
-          - "lowest"
-          - "highest"
         php-version:
           - "7.3"
           - "7.4"
@@ -39,18 +36,13 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ steps.composer-cache.outputs.dir }}
-          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('composer.*') }}-${{ matrix.dependencies }}
+          key: composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('composer.*') }}
           restore-keys: |
             composer-${{ runner.os }}-${{ matrix.php-version }}-${{ hashFiles('composer.*') }}-
             composer-${{ runner.os }}-${{ matrix.php-version }}-
             composer-${{ runner.os }}-
             composer-
-      - name: "Install lowest dependencies"
-        if: ${{ matrix.dependencies == 'lowest' }}
-        run: "composer update --prefer-lowest --no-interaction --no-progress --no-suggest"
-
-      - name: "Install highest dependencies"
-        if: ${{ matrix.dependencies == 'highest' }}
+      - name: "Install dependencies"
         run: "composer update --no-interaction --no-progress --no-suggest"
 
       - name: "Tests"
