@@ -3,7 +3,7 @@
 namespace MaglMarkdownTest\View\Helper;
 
 use MaglMarkdownTest\Bootstrap;
-use Zend\View\HelperPluginManager;
+use Laminas\View\HelperPluginManager;
 
 /**
  * Description of ModuleTest
@@ -22,7 +22,7 @@ class MarkdownTest extends \PHPUnit\Framework\TestCase
 
         $markdown = $view->get('markdown');
         $this->assertInstanceOf('MaglMarkdown\View\Helper\Markdown', $markdown);
-        $this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
+        $this->assertInstanceOf('Laminas\View\Helper\HelperInterface', $markdown);
     }
 
     public function testViewHelperWorking()

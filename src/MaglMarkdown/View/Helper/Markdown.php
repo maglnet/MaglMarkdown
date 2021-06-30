@@ -2,7 +2,7 @@
 
 namespace MaglMarkdown\View\Helper;
 
-use Zend\View\Helper\AbstractHelper;
+use Laminas\View\Helper\AbstractHelper;
 
 /**
  * This is a ZF2 View Helper to provide Markdown transformation

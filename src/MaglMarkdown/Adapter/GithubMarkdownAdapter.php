@@ -3,8 +3,8 @@
 namespace MaglMarkdown\Adapter;
 
 use MaglMarkdown\Adapter\Options\GithubMarkdownOptions;
-use Zend\Http\Client;
-use Zend\Http\Request;
+use Laminas\Http\Client;
+use Laminas\Http\Request;
 
 /**
  * This is an implementation that uses github's markdown API to render Markdown

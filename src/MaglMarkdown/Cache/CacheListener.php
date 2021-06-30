@@ -6,10 +6,10 @@
 
 namespace MaglMarkdown\Cache;
 
-use Zend\Cache\Storage\StorageInterface;
-use Zend\EventManager\Event;
-use Zend\EventManager\EventManagerInterface;
-use Zend\EventManager\ListenerAggregateInterface;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\EventManager\Event;
+use Laminas\EventManager\EventManagerInterface;
+use Laminas\EventManager\ListenerAggregateInterface;
 
 /**
  * Class CacheListener
@@ -58,9 +58,9 @@ class CacheListener implements ListenerAggregateInterface
     /**
      * Searches the cache for rendered markdown.
      *
-     * @param  \Zend\EventManager\Event $event
+     * @param  \Laminas\EventManager\Event $event
      * @return mixed the rendered markdown, if found, false otherwise
-     * @throws \Zend\Cache\Exception\ExceptionInterface
+     * @throws \Laminas\Cache\Exception\ExceptionInterface
      */
     public function preRender(Event $event)
     {
@@ -82,9 +82,9 @@ class CacheListener implements ListenerAggregateInterface
     /**
      * Saves the rendered markdown within the cache.
      *
-     * @param \Zend\EventManager\Event $event
+     * @param \Laminas\EventManager\Event $event
      * @return mixed
-     * @throws \Zend\Cache\Exception\ExceptionInterface
+     * @throws \Laminas\Cache\Exception\ExceptionInterface
      */
     public function postRender(Event $event)
     {

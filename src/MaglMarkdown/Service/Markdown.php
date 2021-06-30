@@ -7,7 +7,7 @@
 namespace MaglMarkdown\Service;
 
 use MaglMarkdown\Adapter\MarkdownAdapterInterface;
-use Zend\EventManager\EventManagerInterface;
+use Laminas\EventManager\EventManagerInterface;
 
 class Markdown
 {

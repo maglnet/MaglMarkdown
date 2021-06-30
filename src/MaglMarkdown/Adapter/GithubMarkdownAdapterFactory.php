@@ -4,12 +4,12 @@ namespace MaglMarkdown\Adapter;
 
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
-use Zend\Http\Client as HttpClient;
-use Zend\Http\Request;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Http\Client as HttpClient;
+use Laminas\Http\Request;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class GithubMarkdownAdapterFactory
@@ -38,7 +38,7 @@ class GithubMarkdownAdapterFactory implements FactoryInterface
      * @param  null|array         $options
      * @return GithubMarkdownAdapter
      * @throws \Interop\Container\Exception\NotFoundException
-     * @throws \Zend\Http\Client\Exception\InvalidArgumentException
+     * @throws \Laminas\Http\Client\Exception\InvalidArgumentException
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
      *     creating a service.
@@ -62,7 +62,7 @@ class GithubMarkdownAdapterFactory implements FactoryInterface
         $request = new Request();
 
         $client = new HttpClient();
-        $client->setAdapter('Zend\Http\Client\Adapter\Curl');
+        $client->setAdapter('Laminas\Http\Client\Adapter\Curl');
 
         $options = $container->get('MaglMarkdown\Adapter\GithubMarkdownOptions');
 

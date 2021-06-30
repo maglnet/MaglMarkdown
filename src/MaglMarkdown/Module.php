@@ -3,8 +3,8 @@
 namespace MaglMarkdown;
 
 use MaglMarkdown\Cache\CacheListener;
-use Zend\ModuleManager\Feature;
-use Zend\Mvc\MvcEvent;
+use Laminas\ModuleManager\Feature;
+use Laminas\Mvc\MvcEvent;
 
 /**
  * MaglMarkdown is a ZF2 module to provide a View Helper that is able to
@@ -45,7 +45,7 @@ class Module implements
     public function getAutoloaderConfig()
     {
         return array(
-            'Zend\Loader\StandardAutoloader' => array(
+            'Laminas\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__,
                 ),

@@ -3,7 +3,7 @@
 namespace MaglMarkdownTest;
 
 use MaglMarkdown\Module;
-use Zend\View\HelperPluginManager;
+use Laminas\View\HelperPluginManager;
 
 /**
  * Description of ModuleTest
@@ -48,7 +48,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
     {
         $config = $this->instance->getAutoloaderConfig();
 
-        $this->assertTrue(array_key_exists('MaglMarkdown', $config['Zend\Loader\StandardAutoloader']['namespaces']));
+        $this->assertTrue(array_key_exists('MaglMarkdown', $config['Laminas\Loader\StandardAutoloader']['namespaces']));
     }
 
     public function testGetServiceConfig()
@@ -98,7 +98,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
         $markdown = $view->get('markdown');
         $this->assertInstanceOf('MaglMarkdown\View\Helper\Markdown', $markdown);
-        $this->assertInstanceOf('Zend\View\Helper\HelperInterface', $markdown);
+        $this->assertInstanceOf('Laminas\View\Helper\HelperInterface', $markdown);
     }
 
     public function testAddsEventListener()
@@ -119,7 +119,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
 
         $smClone->setService('MaglMarkdown\CacheListener', $cacheListenerMock);
 
-        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')
+        $emMock = $this->getMockBuilder('\Laminas\EventManager\EventManager')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -127,7 +127,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
             ->method('attach')
             ->with($emMock);
 
-        $applicationMock = $this->getMockBuilder('\Zend\Mvc\Application')
+        $applicationMock = $this->getMockBuilder('\Laminas\Mvc\Application')
             ->disableOriginalConstructor()
             ->getMock();
 
@@ -139,7 +139,7 @@ class ModuleTest extends \PHPUnit\Framework\TestCase
             ->method('getEventManager')
             ->willReturn($emMock);
 
-        $eventMock = $this->getMockBuilder('\Zend\Mvc\MvcEvent')
+        $eventMock = $this->getMockBuilder('\Laminas\Mvc\MvcEvent')
             ->disableOriginalConstructor()
             ->getMock();
 

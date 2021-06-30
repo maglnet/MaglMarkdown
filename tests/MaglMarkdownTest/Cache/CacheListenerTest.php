@@ -11,7 +11,7 @@ class CacheListenerTest extends \PHPUnit\Framework\TestCase
 {
     public function testAttachDetachListeners(){
         
-        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
+        $emMock = $this->getMockBuilder('\Laminas\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->exactly(2))
             ->method('attach')
@@ -25,7 +25,7 @@ class CacheListenerTest extends \PHPUnit\Framework\TestCase
             ->method('detach')
             ->willReturn(true);
            
-        $cache = new \Zend\Cache\Storage\Adapter\Memory();
+        $cache = new \Laminas\Cache\Storage\Adapter\Memory();
         
         $cacheListener = new \MaglMarkdown\Cache\CacheListener($cache);
         
@@ -34,14 +34,14 @@ class CacheListenerTest extends \PHPUnit\Framework\TestCase
     }
 
     public function testSettingGettingValues(){
-        $cache = new \Zend\Cache\Storage\Adapter\Memory();
+        $cache = new \Laminas\Cache\Storage\Adapter\Memory();
         
         $cacheListener = new \MaglMarkdown\Cache\CacheListener($cache);
         
         $myMarkdown = "This is a test";
         $myRenderedMarkdown = "This is a test (pseudo rendered markdown)";
         
-        $event = new \Zend\EventManager\Event();
+        $event = new \Laminas\EventManager\Event();
         $event->setParam('markdown', $myMarkdown);
         $event->setParam('renderedMarkdown', $myRenderedMarkdown);
         
