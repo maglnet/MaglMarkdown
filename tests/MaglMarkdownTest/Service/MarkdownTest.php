@@ -13,9 +13,9 @@ class MarkdownTest extends \PHPUnit\Framework\TestCase
         
         $markdownAdapter = new \MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter();
         
-        $responseCollection = new \Zend\EventManager\ResponseCollection();
+        $responseCollection = new \Laminas\EventManager\ResponseCollection();
         
-        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
+        $emMock = $this->getMockBuilder('\Laminas\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->exactly(2))
             ->method('trigger')
@@ -41,11 +41,11 @@ class MarkdownTest extends \PHPUnit\Framework\TestCase
         
         $markdownAdapter = new \MaglMarkdown\Adapter\MichelfPHPMarkdownExtraAdapter();
         
-        $responseCollection = new \Zend\EventManager\ResponseCollection();
+        $responseCollection = new \Laminas\EventManager\ResponseCollection();
         $responseCollection->setStopped(true);
         $responseCollection->push($renderedMarkdown);
         
-        $emMock = $this->getMockBuilder('\Zend\EventManager\EventManager')->getMock();
+        $emMock = $this->getMockBuilder('\Laminas\EventManager\EventManager')->getMock();
         
         $emMock->expects($this->once())
             ->method('trigger')

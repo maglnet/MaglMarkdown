@@ -7,7 +7,7 @@
 
 namespace MaglMarkdown\Adapter\Options;
 
-use Zend\Stdlib\AbstractOptions;
+use Laminas\Stdlib\AbstractOptions;
 
 class GithubMarkdownOptions extends AbstractOptions
 {

@@ -4,12 +4,12 @@ namespace MaglMarkdown\Cache;
 
 use Interop\Container\ContainerInterface;
 use Interop\Container\Exception\ContainerException;
-use Zend\Cache\Storage\StorageInterface;
-use Zend\Cache\StorageFactory;
-use Zend\ServiceManager\Exception\ServiceNotCreatedException;
-use Zend\ServiceManager\Exception\ServiceNotFoundException;
-use Zend\ServiceManager\FactoryInterface;
-use Zend\ServiceManager\ServiceLocatorInterface;
+use Laminas\Cache\Storage\StorageInterface;
+use Laminas\Cache\StorageFactory;
+use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\FactoryInterface;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 
 /**
  * Class CacheFactory
@@ -37,7 +37,7 @@ class CacheFactory implements FactoryInterface
      * @param  string             $requestedName
      * @param  null|array         $options
      * @return StorageInterface
-     * @throws \Zend\Cache\Exception\InvalidArgumentException
+     * @throws \Laminas\Cache\Exception\InvalidArgumentException
      * @throws \Interop\Container\Exception\NotFoundException
      * @throws ServiceNotFoundException if unable to resolve the service.
      * @throws ServiceNotCreatedException if an exception is raised when
