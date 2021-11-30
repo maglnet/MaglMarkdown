@@ -31,6 +31,7 @@
         "laminas/laminas-modulemanager": "^2.4",
         "laminas/laminas-view": "^2.4",
         "laminas/laminas-cache": "^2.3 || ^3.0",
+        "laminas/laminas-cache-storage-deprecated-factory": "^1.0",
         "laminas/laminas-cache-storage-adapter-memory": "^2.0",
         "laminas/laminas-servicemanager": "^2.4 || ^3.1.1",
         "container-interop/container-interop": "^1.1"
