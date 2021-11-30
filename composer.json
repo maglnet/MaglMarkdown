@@ -39,7 +39,6 @@
         "phpunit/phpunit": "^9",
         "laminas/laminas-log": "^2.4",
         "laminas/laminas-i18n": "^2.4",
-        "laminas/laminas-cli": "^1.0",
         "laminas/laminas-serializer": "^2.4"
     },
     "autoload": {
